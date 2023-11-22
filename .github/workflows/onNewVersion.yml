@@ -68,9 +68,9 @@ jobs:
           release_name: ${{ steps.version.outputs.version }}
           tag_name: ${{ github.ref }}
           body: |
-          Changes in this Release
-          - First Change
-          - Second Change
+            Changes in this Release
+            - First Change
+            - Second Change
      #     body_path: ./recaster/CHANGELOG.md
 
 
