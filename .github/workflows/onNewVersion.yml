@@ -21,9 +21,9 @@ jobs:
           token: ${{ secrets.RECASTER_REPO_TOKEN }}
           path: ./recaster       
     
-      - name: List files in the repository
-        run: |
-          tree ${{ github.workspace }}
+      # - name: List files in the repository
+      #   run: |
+      #     tree ${{ github.workspace }}
 
       - name: Setup NodeJs 18.x
         uses: actions/setup-node@v4
@@ -53,16 +53,17 @@ jobs:
       - name: Build Recaster
         run: cd ./recaster && npm run build
 
-      - name: List files in the repository
-        run: |
-          tree ${{ github.workspace }}
+      # - name: List files in the repository
+      #   run: |
+      #     tree ${{ github.workspace }}
 
       - name: Set env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-      - name: Test
+      - name: Check version
         run: |
           echo $RELEASE_VERSION
-          echo ${{ env.RELEASE_VERSION }}       
+          echo ${{ env.RELEASE_VERSION }}   
+              
       - name: Generate README file
         run: cd .. && node index.js ${{env.RELEASE_VERSION }}
 
