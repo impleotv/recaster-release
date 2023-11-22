@@ -53,9 +53,21 @@ jobs:
       - name: Build Recaster
         run: cd ./recaster && npm run build
 
-      # - name: List files in the repository
-      #   run: |
-      #     tree ${{ github.workspace }}
+      - name: Create archive and copy
+        run: |
+          cd ./recaster/dist
+          tar -czvf ../../recaster.tar.gz . 
+          
+
+      - name: List files in the repository
+        run: |
+          tree ${{ github.workspace }}
+
+      - name: Create release    
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "recaster.tar.gz"       
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
@@ -64,21 +76,21 @@ jobs:
           echo $RELEASE_VERSION
           echo ${{ env.RELEASE_VERSION }}   
               
-      - name: Generate README file
-        run: cd .. && node index.js ${{env.RELEASE_VERSION }}
+#      - name: Generate README file
+#        run: cd .. && node index.js ${{env.RELEASE_VERSION }}
 
-      - name: Clean up
-        run: |
-          rm -rf ./components
+#      - name: Clean up
+#        run: |
+#          rm -rf ./components
 
-      - name: Commit and Push new README.md to the repository
-        uses: mikeal/publish-to-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ #     - name: Commit and Push new README.md to the repository
+ #       uses: mikeal/publish-to-github-action@master
+ #       env:
+ #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create release    
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "recaster.tar.gz, CHANGELOG.md"       
-          token: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Create release    
+#        uses: ncipollo/release-action@v1
+#        with:
+#          artifacts: "recaster.tar.gz, CHANGELOG.md"       
+#          token: ${{ secrets.GITHUB_TOKEN }}
         
