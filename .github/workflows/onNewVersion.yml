@@ -57,18 +57,38 @@ jobs:
         run: |
           tree ${{ github.workspace }}
 
-      - name: Create release    
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "recaster-install.tar.gz"       
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create release 
+          uses: actions/create-release@v1
+          id: create_release
+          with:
+            draft: false
+            prerelease: false
+            release_name: ${{ steps.version.outputs.version }}
+            tag_name: ${{ github.ref }}
+            body_path: CHANGELOG.md
+          env:
+            GITHUB_TOKEN: ${{ github.token }}
 
-      - name: Set env
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-      - name: Check version
-        run: |
-          echo $RELEASE_VERSION
-          echo ${{ env.RELEASE_VERSION }}   
+
+      - name: upload linux artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./recaster-install.tar.gz
+          asset_name: recaster-install.tar.gz
+          asset_content_type: application/gzip
+
+
+        
+
+      # - name: Set env
+      #   run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      # - name: Check version
+      #   run: |
+      #     echo $RELEASE_VERSION
+      #     echo ${{ env.RELEASE_VERSION }}   
               
 #      - name: Generate README file
 #        run: cd .. && node index.js ${{env.RELEASE_VERSION }}
