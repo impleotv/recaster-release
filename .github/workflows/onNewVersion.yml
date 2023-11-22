@@ -53,12 +53,6 @@ jobs:
       - name: Build Recaster
         run: cd ./recaster && npm run build
 
-      - name: Create archive and copy
-        run: |
-          cd ./recaster/dist
-          tar -czvf ../../recaster.tar.gz . 
-          
-
       - name: List files in the repository
         run: |
           tree ${{ github.workspace }}
@@ -66,7 +60,7 @@ jobs:
       - name: Create release    
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "recaster.tar.gz"       
+          artifacts: "recaster-install.tar.gz"       
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set env
