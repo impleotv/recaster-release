@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: impleotv/recaster
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.RECASTER_REPO_TOKEN }}
           path: ./recaster       
     
       - name: List files in the repository
