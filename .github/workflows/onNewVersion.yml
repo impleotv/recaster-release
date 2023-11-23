@@ -91,7 +91,7 @@ jobs:
             Recaster release
             - tar, zip archives
 
-      - name: Upload artifact
+      - name: Upload tar artifact
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -100,6 +100,16 @@ jobs:
           asset_path: ./recaster/recaster-install.tar.gz
           asset_name: recaster-install.tar.gz
           asset_content_type: application/gzip
+
+      - name: Upload zip artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./recaster/recaster-install.zip
+          asset_name: recaster-install.zip
+          asset_content_type: application/zip
 
       - name: Upload README.md
         uses: actions/upload-release-asset@v1
