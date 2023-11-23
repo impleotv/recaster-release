@@ -133,7 +133,7 @@ jobs:
 
       - name: Push Changes
         run: |
-          git push
+          git push origin HEAD:master
               
       - name: Clean up
         run: |
