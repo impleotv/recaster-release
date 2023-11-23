@@ -131,11 +131,23 @@ jobs:
           asset_name: CHANGELOG.md
           asset_content_type: text/markdown 
 
-      - name: Add README and CHANGELOG
+      # - name: Upload ATP
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+      #     asset_path: ./recaster/ATP/ATP.docx
+      #     asset_name: ATP.docx
+      #     asset_content_type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+
+      - name: Add README, CHANGELOG and ATP
         run: |
           git add README.md
           cp ./recaster/CHANGELOG.md ./
+          cp ./recaster/ATP/ATP.docx ./
           git add CHANGELOG.md
+          git add ATP.docx
 
       - name: Commit Changes
         run: |
