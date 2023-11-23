@@ -59,6 +59,10 @@ jobs:
       - name: Build Recaster
         run: cd ./recaster && npm run build
 
+      - name: Sleep for 10 seconds, just in case...
+        run: sleep 10s
+        shell: bash
+
       - name: List files in the repository
         run: |
           tree -L 2 ${{ github.workspace }}
