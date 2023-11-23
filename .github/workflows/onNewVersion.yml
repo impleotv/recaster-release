@@ -65,13 +65,13 @@ jobs:
           echo $RELEASE_VERSION
           echo ${{ env.RELEASE_VERSION }}   
 
-     - name: Generate README file
-       run: node index.js ${{env.RELEASE_VERSION }}
+      - name: Generate README file
+        run: node index.js ${{env.RELEASE_VERSION }}
 
 
-     - name: Commit and Push new README.md to the repository
-       uses: mikeal/publish-to-github-action@master
-       env:
+      - name: Commit and Push new README.md to the repository
+        uses: mikeal/publish-to-github-action@master
+        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
@@ -114,7 +114,7 @@ jobs:
 
               
       - name: Clean up
-       run: |
+        run: |
          rm -rf ./recaster
 
 
