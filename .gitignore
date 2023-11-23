@@ -4,4 +4,5 @@ npm-debug.log*
 *.zip
 *.gz
 .ftp-deploy-sync-state.json
+recaster/
 
