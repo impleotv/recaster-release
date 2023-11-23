@@ -90,8 +90,6 @@ jobs:
           body: |
             Recaster release
             - tar, zip archives
-      #     body_path: ./recaster/CHANGELOG.md
-
 
       - name: Upload artifact
         uses: actions/upload-release-asset@v1
@@ -103,8 +101,17 @@ jobs:
           asset_name: recaster-install.tar.gz
           asset_content_type: application/gzip
 
+      - name: Upload README.md
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./README.md
+          asset_name: README.md
+          asset_content_type: text/markdown 
 
-      - name: Upload CHANGELOG
+      - name: Upload CHANGELOG.md
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
