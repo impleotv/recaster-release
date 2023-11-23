@@ -59,8 +59,8 @@ jobs:
       - name: Build Recaster
         run: cd ./recaster && npm run build
 
-      - name: Sleep for 10 seconds, just in case...
-        run: sleep 10s
+      - name: Sleep for 4 seconds, just in case...
+        run: sleep 4s
         shell: bash
 
       - name: List files in the repository
