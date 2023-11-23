@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Checkout recaster
         uses: actions/checkout@v2
         with:
@@ -55,8 +58,7 @@ jobs:
 
       - name: List files in the repository
         run: |
-          tree ${{ github.workspace }}
-
+          tree -L 2 ${{ github.workspace }}
 
       - name: Set env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
