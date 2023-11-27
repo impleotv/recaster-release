@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.5](https://github.com/impleotv/recaster/compare/v2.0.4...v2.0.5) (2023-11-26)
+
+
+### Bug Fixes
+
+* Fix iniitial loading ([92120e3](https://github.com/impleotv/recaster/commit/92120e33214bd9bc1b32ebea291258bfdce2a571))
+* Fix mkdocs version macro ([9befb7c](https://github.com/impleotv/recaster/commit/9befb7c9604b0371c2dc4571930bef328a3f4581))
+* Fix start from default yaml ([a0685ae](https://github.com/impleotv/recaster/commit/a0685aea3447a9cd22c2beac2b958a0f78d214de))
+* Notify if trying to edit a running platform ([b52af14](https://github.com/impleotv/recaster/commit/b52af14d1fb34d7b82bb3907deca7725621f8377))
+* Update dependencies ([20e03d3](https://github.com/impleotv/recaster/commit/20e03d320d41530f9dc677d58e5408107e68597d))
+* Update manual ([4d16e75](https://github.com/impleotv/recaster/commit/4d16e7542d529daf7a42481150fb2b21b89af1c8))
+* Update scripts ([f858258](https://github.com/impleotv/recaster/commit/f85825830bd84af8c02f723783c63ba41cbd41a4))
+* Update scripts ([24660d7](https://github.com/impleotv/recaster/commit/24660d785b97a4dfe57abce4a39029dc22b9445c))
+* Update yaml template ([6feb7e6](https://github.com/impleotv/recaster/commit/6feb7e6bc62f455f1beb0b22401f4650052f4005))
+
 ### [2.0.4](https://github.com/impleotv/recaster/compare/v2.0.3...v2.0.4) (2023-11-23)
 
 
