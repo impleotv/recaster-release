@@ -10,10 +10,10 @@ if (args.length === 0) {
 }
 
 
-let pjsonRecaster; 
+let pjsonRecaster;
 
 try {
-  pjsonRecaster = JSON.parse(fs.readFileSync('./recaster/package.json', 'utf8'));  
+  pjsonRecaster = JSON.parse(fs.readFileSync('./recaster/package.json', 'utf8'));
 } catch (error) {
   pjsonRecaster = '1.0.0';
 }
@@ -37,13 +37,13 @@ let DATA = {
 
 function generateReadMe() {
   try {
-    fs.readFile(MUSTACHE_MAIN, (err, data) =>  {
+    fs.readFile(MUSTACHE_MAIN, (err, data) => {
       if (err) throw err;
       const output = Mustache.render(data.toString(), DATA);
       fs.writeFileSync('README.md', output);
-    });    
+    });
   } catch (error) {
-    
+
   }
 }
 
@@ -52,8 +52,6 @@ async function getLatestReleaseTag(repoOwner, repoName) {
   try {
     const response = await axios.get(`https://api.github.com/repos/${repoOwner}/${repoName}/releases/latest`);
     return response.data.tag_name;
-  //  DATA.releaseUrl = `https://github.com/${repoOwner}/${repoName}/releases/download/${latestTag}/recaster-install.zip`;
-   
   } catch (error) {
     console.error('Error fetching latest release:', error.message);
     return null;
