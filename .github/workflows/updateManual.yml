@@ -58,11 +58,8 @@ jobs:
         run: |
           tree -L 2 ${{ github.workspace }}
 
-      - name: Install ftp-deploy
-        run: npm install -g ftp-deploy
-
       - name: Deploy to FTP
-        run: ftp-deploy --user ${{ secrets.FTP_CONTENT_USER }} --password ${{ secrets.FTP_CONTENT_PASSW }} --host ftp.impleotv.com --local-dir ./recaster/Doc/site --remote-dir /recaster/help
+        run: cd ./recaster && npm run deploy_help
               
       - name: Clean up
         run: |
