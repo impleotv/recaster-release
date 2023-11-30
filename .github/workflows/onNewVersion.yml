@@ -39,7 +39,7 @@ jobs:
           node-version: '18.x'
       
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Cache dependencies and build outputs to improve workflow execution time.
         uses: actions/cache@v3
