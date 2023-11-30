@@ -19,10 +19,10 @@ OS: Linux, Windows
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **Recaster (tar.gz)** |  v2.0.8 | [recaster-install.tar.gz](https://github.com/impleotv/recaster-release/releases/download/v2.0.8/recaster-install.tar.gz)  | 
-| **Recaster (zip)** |  v2.0.8 | [recaster-install.zip](https://github.com/impleotv/recaster-release/releases/download/v2.0.8/recaster-install.zip)  | 
+| **Recaster (tar.gz)** |  v2.0.9 | [recaster-install.tar.gz](https://github.com/impleotv/recaster-release/releases/download/v2.0.9/recaster-install.tar.gz)  | 
+| **Recaster (zip)** |  v2.0.9 | [recaster-install.zip](https://github.com/impleotv/recaster-release/releases/download/v2.0.9/recaster-install.zip)  | 
 
-*Released on Wed, 29 Nov, 13:05 GMT+2*
+*Released on Thu, 30 Nov, 19:10 GMT+2*
 
 
 The installation and configuration instructions can be found [here](https://impleotv.com/content/recaster/help/).

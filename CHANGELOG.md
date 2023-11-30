@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.9](https://github.com/impleotv/recaster/compare/v2.0.8...v2.0.9) (2023-11-30)
+
+
+### Bug Fixes
+
+* Add Validated to platfomrs ([264e740](https://github.com/impleotv/recaster/commit/264e740666a7821f405520b4654d0a03fedd3151))
+* Fix initial server status ([f551971](https://github.com/impleotv/recaster/commit/f5519715e08c916b0c01baa3767bfb603b7e2b78))
+* Modify build process ([dc044b3](https://github.com/impleotv/recaster/commit/dc044b306495aa3e59cc5303a56cd1b1a370afc8))
+* Modify help ([8e022d8](https://github.com/impleotv/recaster/commit/8e022d8c39676757469f30879ebac34b0f4dc757))
+
 ### [2.0.8](https://github.com/impleotv/recaster/compare/v2.0.7...v2.0.8) (2023-11-29)
 
 
