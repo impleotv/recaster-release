@@ -15,9 +15,10 @@ jobs:
     
     steps:
 
-      - name: Install jq
+      - name: Install jq and 7zip
         run: |
           sudo apt-get install jq
+          sudo apt-get install p7zip-full
 
       - name: Checkout code
         uses: actions/checkout@v2
