@@ -99,7 +99,7 @@ jobs:
           tag_name: ${{ github.ref }}
           body: |
             Recaster release
-            - tar, zip archives
+            - tar, 7z archives
 
       - name: Upload tar artifact
         uses: actions/upload-release-asset@v1
@@ -117,9 +117,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./recaster/recaster-install.zip
-          asset_name: recaster-install.zip
-          asset_content_type: application/zip
+          asset_path: ./recaster/recaster-install.7z
+          asset_name: recaster-install.7z
+          asset_content_type: application/x-7z-compressed
 
       - name: Upload README.md
         uses: actions/upload-release-asset@v1
