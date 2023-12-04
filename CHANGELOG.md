@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.10](https://github.com/impleotv/recaster/compare/v2.0.9...v2.0.10) (2023-12-04)
+
+
+### Bug Fixes
+
+* Add customEffects ([16ece20](https://github.com/impleotv/recaster/commit/16ece205b3d1681f053f961010f7326945b46cf2))
+* After megre ([5d04463](https://github.com/impleotv/recaster/commit/5d044633ace89c2a8bc2825f60ebe764c4596031))
+* Fix create-install ([a192a4d](https://github.com/impleotv/recaster/commit/a192a4d7882efafac0f003e5796e1535b39b6768))
+* Remove symlink ([2f1161b](https://github.com/impleotv/recaster/commit/2f1161bd19e1b9ca24d26b69fa518f7c8d968288))
+* Update build and install ([5f75748](https://github.com/impleotv/recaster/commit/5f757489aeb662541b52614334ddb61682b16011))
+* Update dependencies ([cb10d09](https://github.com/impleotv/recaster/commit/cb10d099c3637b37762753df7a0398a498d89783))
+* Update terser ([4ec6838](https://github.com/impleotv/recaster/commit/4ec683852e6fec15ad551b052891a64548439c78))
+
 ### [2.0.9](https://github.com/impleotv/recaster/compare/v2.0.8...v2.0.9) (2023-11-30)
 
 
