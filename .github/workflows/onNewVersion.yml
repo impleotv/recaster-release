@@ -173,36 +173,3 @@ jobs:
         run: |
          rm -rf ./recaster
 
-
-  windows_job:
-    needs: build
-    runs-on: windows-latest  # Specify the Windows environment
-    outputs:
-      zip_path: ${{ steps.windows_step.outputs.zip_path }}
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set Folder Path in Windows Job
-        id: set_folder_path
-        run: echo "::set-output name=folder_path::${{ needs.build.outputs.folder_path }}"
-
-      - name: Process folder and create zip
-        id: windows_step
-        run: |
-          # Add steps to process the folder and create the zip
-          ZIP_PATH="path/to/result.zip"
-          echo "::set-output name=zip_path::$ZIP_PATH"
-
-  final_steps:
-    needs: windows_job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download zip from Windows Job
-        run: echo "Download zip from ${{ needs.windows_job.outputs.zip_path }}"
-        # Add steps to handle the downloaded zip file
-
-      - name: List files in the repository
-        run: |
-          tree ${{ github.workspace }}
