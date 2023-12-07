@@ -1,21 +1,17 @@
-name: Cross-platform Workflow
+name: Cross-Platform Workflow
 
-on: 
+on:
   push:
-    tags:
-      - 'test*'
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-  
+    branches:
+      - main
+
 jobs:
-  ubuntu_job:
+  ubuntu-job:
     runs-on: ubuntu-latest
 
-    outputs:
-      folder_path: ${{ steps.prepare.outputs.folder_path }}
-      zip_path: ${{ needs.windows_job.outputs.zip_path }}
-
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Checkout recaster
         uses: actions/checkout@v2
@@ -23,59 +19,46 @@ jobs:
           repository: impleotv/recaster
           token: ${{ secrets.RECASTER_REPO_TOKEN }}
           path: ./recaster       
-
+    
       - name: List files in the repository
         run: |
           tree ${{ github.workspace }}
 
+      - name: Pass folder to Windows job
+        id: pass-folder
+        run: echo "::set-output name=folder_path::./recaster"
 
-      - name: Prepare folder
-        id: prepare
-        run: |
-          # Add steps to prepare the folder
-          FOLDER_PATH="./recaster"
-          echo "::set-output name=folder_path::$FOLDER_PATH"
-
-      - name: Trigger Windows Job
-        id: trigger_windows_job
-        continue-on-error: true
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.before }}
-
-  windows_job:
-    needs: ubuntu_job
+  windows-job:
     runs-on: windows-latest
+    needs: ubuntu-job
 
-    outputs:
-      zip_path: ${{ steps.windows_step.outputs.zip_path }}
+    steps:
+      - name: Create zip file
+        run: |
+          $folderPath = $env:INPUT_FOLDER_PATH
+          Compress-Archive -Path $folderPath -DestinationPath output.zip
+
+      - name: Upload zip file
+        uses: actions/upload-artifact@v2
+        with:
+          name: recaster-zip
+          path: output.zip
+
+  final-job:
+    runs-on: ubuntu-latest
+    needs: windows-job
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: List files in the repository on Windows
-        shell: powershell
-        run: |
-          Get-ChildItem -Path $Env:GITHUB_WORKSPACE -Recurse
+      - name: Download zip file
+        uses: actions/download-artifact@v2
+        with:
+          name: recaster-zip
 
-      - name: Process folder and create zip
-        id: windows_step
-        run: |
-          # Add steps to process the folder and create the zip
-          ZIP_PATH="package.json"
-          echo "::set-output name=zip_path::$ZIP_PATH"
+      - name: Extract zip file
+        run: unzip recaster-zip -d ./recaster
 
-  final_steps:
-    needs: windows_job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download zip from Windows Job
-        run: echo "Download zip from ${{ needs.windows_job.outputs.zip_path }}"
-        # Add steps to handle the downloaded zip file
-
-      - name: List files in the repository
-        run: |
-          tree ${{ github.workspace }}
-
-
+      - name: Display folder structure
+        run: tree ./recaster
