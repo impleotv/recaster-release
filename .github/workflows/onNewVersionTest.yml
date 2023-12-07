@@ -1,8 +1,11 @@
 name: Cross-platform Workflow
 
-on: [push]
+on: 
+  push:
+    tags:
+      - 'test*'
   # Allows you to run this workflow manually from the Actions tab
-workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   ubuntu_job:
@@ -52,11 +55,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: List files in the repository on Windows
+        shell: powershell
+        run: |
+          Get-ChildItem -Path $Env:GITHUB_WORKSPACE -Recurse
+
       - name: Process folder and create zip
         id: windows_step
         run: |
           # Add steps to process the folder and create the zip
-          ZIP_PATH="path/to/result.zip"
+          ZIP_PATH="./package.json"
           echo "::set-output name=zip_path::$ZIP_PATH"
 
   final_steps:
