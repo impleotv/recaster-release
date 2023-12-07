@@ -1,4 +1,4 @@
-name: Cross-platform Workflow
+name: OnPushNewVersion
 
 on:
   push:
