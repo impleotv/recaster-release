@@ -34,18 +34,23 @@ jobs:
   windows-job:
     runs-on: windows-latest
     needs: ubuntu-job
-
+  
     steps:
+      - name: Set folder path variable
+        id: set-folder-path
+        run: echo "::set-output name=folder_path::${{ needs.ubuntu-job.outputs.folder_path }}"
+  
       - name: Create zip file
         run: |
-          $folderPath = $env:INPUT_FOLDER_PATH
+          $folderPath = $env:folder_path
           Compress-Archive -Path $folderPath -DestinationPath output.zip
-
+  
       - name: Upload zip file
         uses: actions/upload-artifact@v2
         with:
           name: recaster-zip
           path: output.zip
+
 
   final-job:
     runs-on: ubuntu-latest
