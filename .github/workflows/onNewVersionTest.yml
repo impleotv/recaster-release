@@ -54,6 +54,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: List files in the repository on Windows
+        shell: powershell
+        run: |
+          Get-ChildItem -Path $Env:GITHUB_WORKSPACE -Recurse
+
       - name: Process folder and create zip
         id: windows_step
         run: |
