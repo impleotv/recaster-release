@@ -174,3 +174,10 @@ jobs:
          rm -rf ./recaster
 
 
+  windows_job:
+  runs-on: windows-latest
+  needs: build
+
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2

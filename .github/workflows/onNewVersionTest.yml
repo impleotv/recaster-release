@@ -1,0 +1,74 @@
+name: Cross-platform Workflow
+
+on: [push]
+  # Allows you to run this workflow manually from the Actions tab
+workflow_dispatch:
+
+jobs:
+  ubuntu_job:
+    runs-on: ubuntu-latest
+
+    outputs:
+      folder_path: ${{ steps.prepare.outputs.folder_path }}
+      zip_path: ${{ needs.windows_job.outputs.zip_path }}
+
+    steps:
+
+      - name: Checkout recaster
+        uses: actions/checkout@v2
+        with:
+          repository: impleotv/recaster
+          token: ${{ secrets.RECASTER_REPO_TOKEN }}
+          path: ./recaster       
+
+      - name: List files in the repository
+        run: |
+          tree ${{ github.workspace }}
+
+
+      - name: Prepare folder
+        id: prepare
+        run: |
+          # Add steps to prepare the folder
+          FOLDER_PATH="./recaster"
+          echo "::set-output name=folder_path::$FOLDER_PATH"
+
+      - name: Trigger Windows Job
+        id: trigger_windows_job
+        run: echo "::set-output name=folder_path::${{ steps.prepare.outputs.folder_path }}"
+        continue-on-error: true
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.before }}
+
+  windows_job:
+    needs: ubuntu_job
+    runs-on: windows-latest
+
+    outputs:
+      zip_path: ${{ steps.windows_step.outputs.zip_path }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Process folder and create zip
+        id: windows_step
+        run: |
+          # Add steps to process the folder and create the zip
+          ZIP_PATH="path/to/result.zip"
+          echo "::set-output name=zip_path::$ZIP_PATH"
+
+  final_steps:
+    needs: windows_job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download zip from Windows Job
+        run: echo "Download zip from ${{ needs.windows_job.outputs.zip_path }}"
+        # Add steps to handle the downloaded zip file
+
+      - name: List files in the repository
+        run: |
+          tree ${{ github.workspace }}
+
+
