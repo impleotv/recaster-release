@@ -26,64 +26,28 @@ jobs:
         run: |
           tree ${{ github.workspace }}
 
-      - name: Display folder path
-        run: echo "Folder Path: ${{ github.workspace }}/recaster"
 
-      - name: Set folder path output
-        id: pass-folder
-        run: echo "::set-output name=folder_path::${{ github.workspace }}/recaster"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: recasterArchive
+          path: ./recaster/package.json
+
 
   windows-job:
     runs-on: windows-latest
     needs: ubuntu-job
 
     steps:
-      - name: Set folder path variable
-        id: set-folder-path
-        run: echo "Folder Path: ${{ needs.ubuntu-job.outputs.folder_path }}"
-
-      - name: Create zip file
-        run: |
-          $folderPath = $env:INPUT_FOLDER_PATH
-          echo "Folder Path in Windows: $folderPath"
-          Compress-Archive -Path $folderPath -DestinationPath output.zip
-
-      - name: Upload zip file
-        uses: actions/upload-artifact@v2
+      - uses: actions/download-artifact@v2
         with:
-          name: recaster-zip
-          path: output.zip
+          name: recasterArchive
 
-  final-job:
-    runs-on: ubuntu-latest
-    needs: windows-job
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
+      
       - name: List files in the repository on Windows
         shell: powershell
         run: |
           Get-ChildItem -Path $Env:GITHUB_WORKSPACE -Recurse
 
-      - name: Process folder and create zip
-        id: windows_step
-        run: |
-          # Add steps to process the folder and create the zip
-          ZIP_PATH="./package.json"
-          echo "::set-output name=zip_path::$ZIP_PATH"
 
-  final_steps:
-    needs: windows_job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download zip from Windows Job
-        run: echo "Download zip from ${{ needs.windows_job.outputs.zip_path }}"
-        # Add steps to handle the downloaded zip file
-
-      - name: List files in the repository
-        run: |
-          tree ${{ github.workspace }}
 
 
