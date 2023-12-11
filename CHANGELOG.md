@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.13](https://github.com/impleotv/recaster/compare/v2.0.12...v2.0.13) (2023-12-11)
+
+
+### Bug Fixes
+
+* Add vendor favicon ([2219e72](https://github.com/impleotv/recaster/commit/2219e729ef744e3f08f77c27a3346a508f06d160))
+* Update dependencies ([e9f34d4](https://github.com/impleotv/recaster/commit/e9f34d4844fd50a2ac9d4cc59b4a8c78549ba41c))
+* Url editing and validation ([e9bcb68](https://github.com/impleotv/recaster/commit/e9bcb685d8efb59fd63180e51a107da496623c80))
+
 ### [2.0.12](https://github.com/impleotv/recaster/compare/v2.0.11...v2.0.12) (2023-12-07)
 
 ### [2.0.11](https://github.com/impleotv/recaster/compare/v2.0.10...v2.0.11) (2023-12-05)
