@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/impleotv/recaster/compare/v2.1.2...v2.2.0) (2023-12-27)
+
+### Features
+
+-   Add platform filtering ([3bd74c6](https://github.com/impleotv/recaster/commit/3bd74c6a0388934db54786def679e2f45fe5568b))
+
+### Bug Fixes
+
+-   Enable edit on dialog entry ([fef9d6a](https://github.com/impleotv/recaster/commit/fef9d6a4698615ae9c3acaa64e5ded09c66e4c84))
+-   Internal platfoms start ([67fc619](https://github.com/impleotv/recaster/commit/67fc6198d615637ea97e7286566f07a6db9d2dbb))
+
 ### [2.1.2](https://github.com/impleotv/recaster/compare/v2.1.1...v2.1.2) (2023-12-24)
 
 ### Bug Fixes
