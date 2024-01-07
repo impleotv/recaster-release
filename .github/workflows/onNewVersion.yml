@@ -141,6 +141,16 @@ jobs:
           asset_name: CHANGELOG.md
           asset_content_type: text/markdown 
 
+      - name: Upload RecasterVdd.docx
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./recaster/RecasterVdd.docx
+          asset_name: RecasterVdd.docx
+          asset_content_type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+
       # - name: Upload ATP
       #   uses: actions/upload-release-asset@v1
       #   env:
@@ -151,13 +161,15 @@ jobs:
       #     asset_name: ATP.docx
       #     asset_content_type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
 
-      - name: Add README, CHANGELOG and ATP
+      - name: Add README, CHANGELOG, ATP abd vdd
         run: |
           git add README.md
           cp ./recaster/CHANGELOG.md ./
           cp ./recaster/ATP/ATP.docx ./
+          cp ./recaster/RecasterVdd.docx ./
           git add CHANGELOG.md
           git add ATP.docx
+          git add RecasterVdd.docx
 
       - name: Commit Changes
         run: |
