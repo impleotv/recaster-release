@@ -22,7 +22,7 @@ OS: Linux, Windows
 | **Recaster (tar.gz)** |  v2.2.1 | [recaster-install.tar.gz](https://github.com/impleotv/recaster-release/releases/download/v2.2.1/recaster-install.tar.gz)  | 
 | **Recaster (7z)** |  v2.2.1 | [recaster-install.7z](https://github.com/impleotv/recaster-release/releases/download/v2.2.1/recaster-install.7z)  | 
 
-*Released on Sun, 7 Jan, 11:47 GMT+2*
+*Released on Sun, 7 Jan, 12:22 GMT+2*
 
 
 The installation and configuration instructions can be found [here](https://impleotv.com/content/recaster/help/).
