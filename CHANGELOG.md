@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://github.com/impleotv/recaster/compare/v2.2.0...v2.2.1) (2024-01-07)
+
+### Bug Fixes
+
+-   Add Open Platform accordion on click ([50a1bdc](https://github.com/impleotv/recaster/commit/50a1bdca01205b6007085bd8a77053e676d88a59))
+-   Add platform/channel names to editor ([3e959a8](https://github.com/impleotv/recaster/commit/3e959a86174d45286509236cbbd3bb55e1e888f5))
+-   Add vdd ([55c86f5](https://github.com/impleotv/recaster/commit/55c86f500bf24d902265434f02b272e8086033ad))
+-   Enable multicast input from one of the outputs ([3aa160a](https://github.com/impleotv/recaster/commit/3aa160aa56bd7c4c19e170f1f0cc39ef0663529b))
+-   Update depencies ([a24c457](https://github.com/impleotv/recaster/commit/a24c4579ec8fcedf23d6fa9b6dd7f19a120b691a))
+-   Update dependencies ([4dacb93](https://github.com/impleotv/recaster/commit/4dacb930f5ec2f94032df8c6f27fdb2b71ab32e3))
+
 ## [2.2.0](https://github.com/impleotv/recaster/compare/v2.1.2...v2.2.0) (2023-12-27)
 
 ### Features
