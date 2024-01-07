@@ -50,4 +50,11 @@ jobs:
 
 
 
+      - name: List artifacts
+        run: |
+          Get-ChildItem -Path $env:GITHUB_WORKSPACE\recasterArchive
+
+      - name: Delete artifact
+        run: |
+          Remove-Item -Recurse -Force $env:GITHUB_WORKSPACE\recasterArchive
 
