@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.2](https://github.com/impleotv/recaster/compare/v2.2.1...v2.2.2) (2024-01-17)
+
+### Bug Fixes
+
+-   Add bitrateUpdateInterval ([cf42c75](https://github.com/impleotv/recaster/commit/cf42c75e11d2dc70870dae716940d353c0c8dba6))
+-   Update dependencies. Remove default output name ([96dd53f](https://github.com/impleotv/recaster/commit/96dd53fe93a3c12761152f5e83ad989e1673fcc8))
+
 ### [2.2.1](https://github.com/impleotv/recaster/compare/v2.2.0...v2.2.1) (2024-01-07)
 
 ### Bug Fixes
