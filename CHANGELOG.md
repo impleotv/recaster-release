@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.1](https://github.com/impleotv/recaster/compare/v2.3.0...v2.3.1) (2024-01-22)
+
+### Bug Fixes
+
+-   Create uploads dir if it doesn't exist ([9397cf2](https://github.com/impleotv/recaster/commit/9397cf203ac8db4b3888d03350abc7ca4707a5d0))
+-   Update vdd ([eeb6819](https://github.com/impleotv/recaster/commit/eeb6819494f283ff020ef71bddb96cf24e8e7396))
+-   Upload error reporting ([b202733](https://github.com/impleotv/recaster/commit/b20273318836943368f9e656afeb2f5c9e0e7a68))
+
 ## [2.3.0](https://github.com/impleotv/recaster/compare/v2.2.2...v2.3.0) (2024-01-22)
 
 ### Features
