@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/impleotv/recaster/compare/v2.2.2...v2.3.0) (2024-01-22)
+
+### Features
+
+-   Add Import platforms ([046e11f](https://github.com/impleotv/recaster/commit/046e11f22855bb6a9b1773ffd4f7eee3da59f9b3))
+-   New implementation for streamBitrate ([065e13d](https://github.com/impleotv/recaster/commit/065e13d735d392a9b879a6465a5c9b277ecc79f3))
+
+### Bug Fixes
+
+-   Add clear logs ([dfc09b2](https://github.com/impleotv/recaster/commit/dfc09b2d06838108b995d88951ccb8d30a26842d))
+-   Add license upload ([278b2af](https://github.com/impleotv/recaster/commit/278b2af5e999d838435ad2d8d523da1625cc656b))
+-   Add platforms export/import buttons ([378a8be](https://github.com/impleotv/recaster/commit/378a8be1d0d740c2587265469504cef96817707e))
+-   Fix Output Port. Remove combo ([0c06b9f](https://github.com/impleotv/recaster/commit/0c06b9fe0c9178a96d8554f46fb6b12968b41969))
+-   gitignore ([8385cde](https://github.com/impleotv/recaster/commit/8385cde8e9e9752c266c99eb3bac9d30ff29fddf))
+-   Modify manual ([3be6200](https://github.com/impleotv/recaster/commit/3be62001d6e17b8bbdb8354b5e84d4a75c402b44))
+-   Move types to dev dependencies ([35d2e16](https://github.com/impleotv/recaster/commit/35d2e16a8845da3182d316bda07926f500d2974c))
+-   Update dependencies ([67233d4](https://github.com/impleotv/recaster/commit/67233d49541f3cfa83c8f7207de52bf699d77ecc))
+-   Upload license re-apply ([5b41b9d](https://github.com/impleotv/recaster/commit/5b41b9d732a6fc83c7d47a91219abe130e7071eb))
+
 ### [2.2.2](https://github.com/impleotv/recaster/compare/v2.2.1...v2.2.2) (2024-01-17)
 
 ### Bug Fixes
