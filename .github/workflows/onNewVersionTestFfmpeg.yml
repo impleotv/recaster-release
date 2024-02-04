@@ -37,6 +37,10 @@ jobs:
         with:
           ffmpeg-version: release
           architecture: 'x64'
+       
+      - name: Print FFmpeg Path
+        run: |
+          echo "FFmpeg Path: ${{ steps.setup-ffmpeg.outputs.ffmpeg-path }}"
 
 
       - name: List files in the repository
