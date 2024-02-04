@@ -31,7 +31,7 @@ jobs:
           path: ./recaster       
 
 
-      - name: Download and Extract ffmpeg
+      - name: Download and Extract ffmpeg for win
         run: |
           wget https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z
           7z x ffmpeg-release-full.7z -o./ffmpeg-tmp
@@ -44,6 +44,11 @@ jobs:
         run: |
           mkdir -p ./recaster/ffmpeg/win
           cp ./ffmpeg-tmp/ffmpeg-6.1.1-full_build/bin/ffprobe.exe ./recaster/ffmpeg/win/
+
+      - name: Delete ffmpeg-release-full.7z and ffmpeg-tmp directory
+        run: |
+          rm ffmpeg-release-full.7z
+          rm -rf ./ffmpeg-tmp
 
 
       - name: List files in the repository
