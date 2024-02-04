@@ -1,0 +1,51 @@
+name: OnPushNewVersion
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+
+      - name: Install jq and 7zip
+        run: |
+          sudo apt-get install jq
+          sudo apt-get install p7zip-full
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Checkout recaster
+        uses: actions/checkout@v2
+        with:
+          repository: impleotv/recaster
+          token: ${{ secrets.RECASTER_REPO_TOKEN }}
+          path: ./recaster       
+    
+
+      - name: Install ffmpeg
+        uses: FedericoCarboni/setup-ffmpeg@v3
+        id: setup-ffmpeg
+        with:
+          ffmpeg-version: release
+          architecture: 'x64'
+
+
+      - name: List files in the repository
+        run: |
+          tree ${{ github.workspace }}
+
+ 
+              
+      - name: Clean up
+        run: |
+         rm -rf ./recaster
+
