@@ -56,6 +56,15 @@ jobs:
           mkdir -p ffmpeg-linux-tmp
           tar -xf ffmpeg-release-amd64-static.tar.xz -C ffmpeg-linux-tmp --strip-components=1
 
+      - name: Copy ffprobe linux
+        run: |
+          mkdir -p ./recaster/ffmpeg/linux-x64
+          cp ./ffmpeg-linux-tmp/ffprobe ./recaster/ffmpeg/linux-x64/
+
+      - name: Delete ffmpeg-release-amd64-static.tar.xz and ffmpeg-linux-tmp directory
+        run: |
+          rm ffmpeg-release-amd64-static.tar.xz
+          rm -rf ./ffmpeg-linux-tmp
 
       - name: List files in the repository
         run: |
