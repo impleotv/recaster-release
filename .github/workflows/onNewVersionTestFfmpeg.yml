@@ -34,7 +34,7 @@ jobs:
       - name: Download and Extract ffmpeg
         run: |
           wget https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z
-          7z x ffmpeg-release-full.7z -o ./ffmpeg
+          7z x ffmpeg-release-full.7z -o./ffmpeg
 
 
       - name: List files in the repository
