@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.3](https://github.com/impleotv/recaster/compare/v2.5.2...v2.5.3) (2024-02-04)
+
+### Bug Fixes
+
+-   Update dependencies ([8786ac5](https://github.com/impleotv/recaster/commit/8786ac57bd7a921b922eb1403c81f7fd86881823))
+-   Update StreamRecaster ([c04febd](https://github.com/impleotv/recaster/commit/c04febddb7281a5abb28354bc2b58c95527e891e))
+
 ### [2.5.2](https://github.com/impleotv/recaster/compare/v2.5.1...v2.5.2) (2024-02-02)
 
 ### Bug Fixes
