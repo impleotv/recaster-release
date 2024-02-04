@@ -34,7 +34,12 @@ jobs:
       - name: Download and Extract ffmpeg
         run: |
           wget https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z
-          7z x ffmpeg-release-full.7z -o./ffmpeg
+          7z x ffmpeg-release-full.7z -o./ffmpeg-tmp
+
+      - name: Copy ffprobe win
+        run: |
+          mkdir -p ./recaster/ffmpeg/win
+          cp ./ffmpeg-tmp/ffprobe.exe" ./recaster/ffmpeg/win/
 
 
       - name: List files in the repository
