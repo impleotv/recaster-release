@@ -7,7 +7,7 @@
 
 # Recaster
 
-![Recaster](images/recaster-main-sm.jpg)  
+![Recaster](images/recaster-main-sm.png)  
 
 
 ## System Requirements
