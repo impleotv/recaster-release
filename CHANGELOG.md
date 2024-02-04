@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.2](https://github.com/impleotv/recaster/compare/v2.5.1...v2.5.2) (2024-02-02)
+
+### Bug Fixes
+
+-   Add await to Logging ([c363f7c](https://github.com/impleotv/recaster/commit/c363f7cf04ac2c891dabb27383b2d46228f86b97))
+-   Fix old license handling ([8c3b9f9](https://github.com/impleotv/recaster/commit/8c3b9f9a4f3e3b3bb106a4e2c325e65bf27ec6e5))
+-   Update dependencies ([bacac67](https://github.com/impleotv/recaster/commit/bacac67d30345ac1298068e156c34ec14fa23e0e))
+-   Update react-router-dom ([8e90553](https://github.com/impleotv/recaster/commit/8e90553264fb70e5a5a1177dfba05ffafca81e25))
+-   Update StreamRecaster ([bb48225](https://github.com/impleotv/recaster/commit/bb4822512443b8de21491e8a1e97cac56e090f19))
+
+### [2.5.1](https://github.com/impleotv/recaster/compare/v2.5.0...v2.5.1) (2024-02-01)
+
+### Bug Fixes
+
+-   Fix new license fields ([1f6e61b](https://github.com/impleotv/recaster/commit/1f6e61b55c40121b0cb05d81858dfbaa1918f6af))
+
+## [2.5.0](https://github.com/impleotv/recaster/compare/v2.4.0...v2.5.0) (2024-02-01)
+
+### Features
+
+-   Add Show license ([a135b61](https://github.com/impleotv/recaster/commit/a135b61318075b20273d0b845921e4b2d94f1b8f))
+-   Add Show license ([78d1bc8](https://github.com/impleotv/recaster/commit/78d1bc878ac995cbd83ce1d3c86880ab9e20c3f1))
+
+### Bug Fixes
+
+-   Fix license management ([204fd4e](https://github.com/impleotv/recaster/commit/204fd4ec84ca03bf80a20ecb8970e1947815c710))
+-   Implement MaxStreams license limitation ([8900046](https://github.com/impleotv/recaster/commit/89000460842295db679d552caa1884cb0439d93d))
+-   Update dependencies ([01c9f32](https://github.com/impleotv/recaster/commit/01c9f32c24e5519c938a746f85ff09fac73c86bb))
+-   Update dependencies ([5b05637](https://github.com/impleotv/recaster/commit/5b056371351bb00c32ebc097db9276ea971595f2))
+
+## [2.4.0](https://github.com/impleotv/recaster/compare/v2.3.1...v2.4.0) (2024-01-26)
+
+### Features
+
+-   Add detection ([d5a04a0](https://github.com/impleotv/recaster/commit/d5a04a084747af7b1e73af8a5b11a1c7c7e2bc21))
+
+### Bug Fixes
+
+-   Add platform filtering to platform config ([2c0a792](https://github.com/impleotv/recaster/commit/2c0a79243d1d6b2f228e11485dedcdceeb221b8d))
+-   modify gitignore ([0d6ad80](https://github.com/impleotv/recaster/commit/0d6ad807442bcf02e113afba3592dea65f903ebe))
+-   Modify version creation ([a947324](https://github.com/impleotv/recaster/commit/a947324c60651b5a7b4ab3afa2a33846dbcc41cd))
+-   Platform filtering to platform config ([84a1820](https://github.com/impleotv/recaster/commit/84a182074c9da509c02ffaa2daddbef1b3078dac))
+
 ### [2.3.1](https://github.com/impleotv/recaster/compare/v2.3.0...v2.3.1) (2024-01-22)
 
 ### Bug Fixes
