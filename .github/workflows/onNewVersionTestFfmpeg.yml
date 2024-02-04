@@ -45,7 +45,11 @@ jobs:
       - name: Print FFmpeg Path
         run: |
           tree "${{ steps.setup-ffmpeg.outputs.ffmpeg-path }}"
-
+     
+      - name: Copy ffprobe
+        run: |
+          mkdir -p ./recaster/ffmpeg/linux-64
+          cp "${{ steps.setup-ffmpeg.outputs.ffmpeg-path }}/ffprobe" ./recaster/ffmpeg/linux-64/
 
       - name: List files in the repository
         run: |
