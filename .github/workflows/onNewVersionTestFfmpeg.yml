@@ -50,6 +50,12 @@ jobs:
           rm ffmpeg-release-full.7z
           rm -rf ./ffmpeg-tmp
 
+      - name: Download and Extract ffmpeg Linux
+        run: |
+          wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+          mkdir -p ffmpeg-linux-tmp
+          tar -xf ffmpeg-release-amd64-static.tar.xz -C ffmpeg-linux-tmp --strip-components=1
+
 
       - name: List files in the repository
         run: |
