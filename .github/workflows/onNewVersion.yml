@@ -29,7 +29,42 @@ jobs:
           repository: impleotv/recaster
           token: ${{ secrets.RECASTER_REPO_TOKEN }}
           path: ./recaster       
-    
+
+      - name: Download and Extract ffmpeg for win
+        run: |
+          wget https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z
+          7z x ffmpeg-release-full.7z -o./ffmpeg-tmp
+
+      - name: List files in the repository
+        run: |
+          tree ${{ github.workspace }}
+
+      - name: Copy ffprobe win
+        run: |
+          mkdir -p ./recaster/ffmpeg/win
+          cp ./ffmpeg-tmp/ffmpeg-6.1.1-full_build/bin/ffprobe.exe ./recaster/ffmpeg/win/
+
+      - name: Delete ffmpeg-release-full.7z and ffmpeg-tmp directory
+        run: |
+          rm ffmpeg-release-full.7z
+          rm -rf ./ffmpeg-tmp
+
+      - name: Download and Extract ffmpeg Linux
+        run: |
+          wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+          mkdir -p ffmpeg-linux-tmp
+          tar -xf ffmpeg-release-amd64-static.tar.xz -C ffmpeg-linux-tmp --strip-components=1
+
+      - name: Copy ffprobe linux
+        run: |
+          mkdir -p ./recaster/ffmpeg/linux-x64
+          cp ./ffmpeg-linux-tmp/ffprobe ./recaster/ffmpeg/linux-x64/
+
+      - name: Delete ffmpeg-release-amd64-static.tar.xz and ffmpeg-linux-tmp directory
+        run: |
+          rm ffmpeg-release-amd64-static.tar.xz
+          rm -rf ./ffmpeg-linux-tmp
+   
       - name: List files in the repository
         run: |
           tree ${{ github.workspace }}
