@@ -1,4 +1,4 @@
-name: OnPushNewVersion
+name: OnPushFfmpegTest
 
 on:
   push:
