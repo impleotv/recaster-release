@@ -29,27 +29,13 @@ jobs:
           repository: impleotv/recaster
           token: ${{ secrets.RECASTER_REPO_TOKEN }}
           path: ./recaster       
-    
 
-      - name: Install ffmpeg
-        uses: FedericoCarboni/setup-ffmpeg@v3
-        id: setup-ffmpeg
-        with:
-          ffmpeg-version: release
-          architecture: 'x64'
-       
-      - name: Print FFmpeg Path
-        run: |
-          echo "FFmpeg Path: ${{ steps.setup-ffmpeg.outputs.ffmpeg-path }}"
 
-      - name: Print FFmpeg Path
+      - name: Download and Extract ffmpeg
         run: |
-          tree "${{ steps.setup-ffmpeg.outputs.ffmpeg-path }}"
-     
-      - name: Copy ffprobe
-        run: |
-          mkdir -p ./recaster/ffmpeg/linux-64
-          cp "${{ steps.setup-ffmpeg.outputs.ffmpeg-path }}/ffprobe" ./recaster/ffmpeg/linux-64/
+          wget https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z
+          7z x ffmpeg-release-full.7z -o ./ffmpeg
+
 
       - name: List files in the repository
         run: |
