@@ -187,7 +187,7 @@ jobs:
           asset_content_type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
 
       - name: Zip docker related files
-        run: zip -r docker.zip docker-compose.yml .env
+        run: zip -r docker.zip ./recaster/docker-compose.yml ./recaster/.env
 
       - name: Upload docker.zip
         uses: actions/upload-release-asset@v1
