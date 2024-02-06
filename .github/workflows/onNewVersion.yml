@@ -186,6 +186,27 @@ jobs:
           asset_name: RecasterVdd.docx
           asset_content_type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
 
+
+      - name: Upload docker-compose.yml
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./recaster/docker-compose.yml
+          asset_name: docker/docker-compose.yml
+          asset_content_type: application/x-yaml 
+
+      - name: Upload .env
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./recaster/.env
+          asset_name: docker/.env
+          asset_content_type: application/x-envoy
+
       # - name: Upload ATP
       #   uses: actions/upload-release-asset@v1
       #   env:
