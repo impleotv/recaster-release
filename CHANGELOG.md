@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/impleotv/recaster/compare/v2.5.4...v2.6.0) (2024-02-06)
+
+### Features
+
+-   Add docker support ([e43ffa7](https://github.com/impleotv/recaster/commit/e43ffa73ca15e2857c262de53a0a1c5dcefb04ff))
+
+### Bug Fixes
+
+-   Add unique input url validation for the channel ([1325c6e](https://github.com/impleotv/recaster/commit/1325c6efd97e25e4fdb2ce03d14afa5f53df66f0))
+-   Add unique input url validation for the channel ([f59bd4f](https://github.com/impleotv/recaster/commit/f59bd4fe439c641ed0df35b722ce18893a54bc2c))
+-   Modify license path ([c7ecc88](https://github.com/impleotv/recaster/commit/c7ecc88120efe01f680e67e3fa0df95ed774d0f4))
+-   Modify manual ([fc0a793](https://github.com/impleotv/recaster/commit/fc0a79309687d6e91a0d27fd5ee24b1ddb0c3256))
+
+### [2.5.4](https://github.com/impleotv/recaster/compare/v2.5.3...v2.5.4) (2024-02-05)
+
+### Bug Fixes
+
+-   Hide detection icon when no info ([f27ddad](https://github.com/impleotv/recaster/commit/f27ddadd71c82b496f0f857e197416709fe39749))
+-   Modify .prettierignore ([c351677](https://github.com/impleotv/recaster/commit/c351677b5b326ead2a27fe5e82a86842990edb0f))
+-   Update dependencies ([afcd95a](https://github.com/impleotv/recaster/commit/afcd95a9c4c1886fb43b79ac4b59baeac4e32df5))
+-   Ver 2.5.3 ([31e7765](https://github.com/impleotv/recaster/commit/31e7765fb37b887bdd40dca4da14b925c9931a32))
+
 ### [2.5.3](https://github.com/impleotv/recaster/compare/v2.5.2...v2.5.3) (2024-02-04)
 
 ### Bug Fixes

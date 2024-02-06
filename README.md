@@ -19,13 +19,33 @@ OS: Linux, Windows
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **Recaster (tar.gz)** |  v2.5.3 | [recaster-install.tar.gz](https://github.com/impleotv/recaster-release/releases/download/v2.5.3/recaster-install.tar.gz)  | 
-| **Recaster (7z)** |  v2.5.3 | [recaster-install.7z](https://github.com/impleotv/recaster-release/releases/download/v2.5.3/recaster-install.7z)  | 
+| **Recaster (7z)** |  v2.6.0 | [recaster-install.7z](https://github.com/impleotv/recaster-release/releases/download/v2.6.0/recaster-install.7z)  | 
+| **Recaster (tar.gz)** |  v2.6.0 | [recaster-install.tar.gz](https://github.com/impleotv/recaster-release/releases/download/v2.6.0/recaster-install.tar.gz)  | 
 
-*Released on Sun, 4 Feb, 13:35 GMT+2*
+*Released on Tue, 6 Feb, 11:26 GMT+2*
 
 
 The installation and configuration instructions can be found [here](https://impleotv.com/content/recaster/help/).
+
+
+
+## Docker
+
+Use the docker-compose.yml file that accompanies the release, or use the following command to run the Docker image:
+
+```sh
+docker run -d \
+    --name recaster \
+    --restart always \
+    -e PORT=5000 \  
+    -v $(pwd)/data/:/recaster/data/ \
+    -v recasterdb:/recaster/db/ \
+    -v recasterlic:/recaster/licenses/ \
+    --network host \
+    impleo/recaster:v2.6.0
+```
+
+More info [here](https://impleotv.com/content/recaster/help/user-guide/running-docker.html)
 
 
 ----  
