@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.2](https://github.com/impleotv/recaster/compare/v2.6.1...v2.6.2) (2024-02-11)
+
+### Bug Fixes
+
+-   Modify license processing at the client side ([16f5957](https://github.com/impleotv/recaster/commit/16f5957533e4eac590bf62e46f4e20aafabf973e))
+-   Modify license processing at the client side ([b36ce0a](https://github.com/impleotv/recaster/commit/b36ce0a690a6a306745935e0bae6e7fc3e4969d4))
+-   Modify license support for Users ([8f2107b](https://github.com/impleotv/recaster/commit/8f2107b339630dbc2ca67f0cc0bae77013a9510c))
+-   Update manual ([80ebc9f](https://github.com/impleotv/recaster/commit/80ebc9fb39b3fead6c96d1bad8b68b5cb3c1ea9c))
+
 ### [2.6.1](https://github.com/impleotv/recaster/compare/v2.6.0...v2.6.1) (2024-02-07)
 
 ### Bug Fixes
