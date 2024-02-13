@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.3](https://github.com/impleotv/recaster/compare/v2.6.2...v2.6.3) (2024-02-13)
+
+### Bug Fixes
+
+-   Fix disappearing output on channel edit ([596e5ef](https://github.com/impleotv/recaster/commit/596e5ef258905a318532114fd075d65e80fdb7da))
+-   Video preview port ([0e84fcd](https://github.com/impleotv/recaster/commit/0e84fcd45fffe63c2fb216499750a727739d9d6a))
+
 ### [2.6.2](https://github.com/impleotv/recaster/compare/v2.6.1...v2.6.2) (2024-02-11)
 
 ### Bug Fixes
