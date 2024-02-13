@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.4](https://github.com/impleotv/recaster/compare/v2.6.3...v2.6.4) (2024-02-13)
+
+### Bug Fixes
+
+-   Add validation for empty names ([0372bb5](https://github.com/impleotv/recaster/commit/0372bb55b3037dbaea758bb26e0b8160cc732ebe))
+-   Disable webrtc preview in demo mode ([4effaea](https://github.com/impleotv/recaster/commit/4effaeaf520d266413edc88f6fe23db25314f647))
+-   Modify VDD ([5d4fcda](https://github.com/impleotv/recaster/commit/5d4fcda1e64c413b92a8110516d4493f0be7ea81))
+
 ### [2.6.3](https://github.com/impleotv/recaster/compare/v2.6.2...v2.6.3) (2024-02-13)
 
 ### Bug Fixes
