@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.5](https://github.com/impleotv/recaster/compare/v2.6.4...v2.6.5) (2024-02-14)
+
+### Bug Fixes
+
+-   Fix issue [#16](https://github.com/impleotv/recaster/issues/16): Modify platform name on import if duplicate found ([7143359](https://github.com/impleotv/recaster/commit/71433594b53f3112bd889e66e62ab9d99e5c52a8))
+-   Fix issue [#16](https://github.com/impleotv/recaster/issues/16): Modify platform name on import if duplicate found ([81c9e54](https://github.com/impleotv/recaster/commit/81c9e544d48394d0ead635276ee91e112732ef2b))
+-   Fix issue [#18](https://github.com/impleotv/recaster/issues/18): when editing a running platform - you can change the port ([cfe23c7](https://github.com/impleotv/recaster/commit/cfe23c71bdd8b8fd050d66cc1bd0f984f02b26f6))
+-   Update dependencies ([ce61628](https://github.com/impleotv/recaster/commit/ce616286a1f49afa26f1b086ed1175a483787492))
+
 ### [2.6.4](https://github.com/impleotv/recaster/compare/v2.6.3...v2.6.4) (2024-02-13)
 
 ### Bug Fixes
