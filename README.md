@@ -47,6 +47,9 @@ docker run -d \
 
 More info [here](https://impleotv.com/content/recaster/help/user-guide/running-docker.html)
 
+## Known issues
+- Duplicate platform name when duplicating the same platform. This may lead to the situation when you cannot stop the platform. Manually remove the platform from the /db/platforms folder
+
 
 ----  
 *Please don't hesitate to contact us at support@impleotv.com should you have any question.*
