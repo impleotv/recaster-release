@@ -19,10 +19,10 @@ OS: Linux, Windows
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **Recaster (7z)** |  v2.6.5 | [recaster-install.7z](https://github.com/impleotv/recaster-release/releases/download/v2.6.5/recaster-install.7z)  | 
-| **Recaster (tar.gz)** |  v2.6.5 | [recaster-install.tar.gz](https://github.com/impleotv/recaster-release/releases/download/v2.6.5/recaster-install.tar.gz)  | 
+| **Recaster (7z)** |  v2.6.6 | [recaster-install.7z](https://github.com/impleotv/recaster-release/releases/download/v2.6.6/recaster-install.7z)  | 
+| **Recaster (tar.gz)** |  v2.6.6 | [recaster-install.tar.gz](https://github.com/impleotv/recaster-release/releases/download/v2.6.6/recaster-install.tar.gz)  | 
 
-*Released on Wed, 14 Feb, 09:48 GMT+2*
+*Released on Mon, 19 Feb, 11:20 GMT+2*
 
 
 The installation and configuration instructions can be found [here](https://impleotv.com/content/recaster/help/).
@@ -42,13 +42,12 @@ docker run -d \
     -v recasterdb:/recaster/db/ \
     -v recasterlic:/recaster/licenses/ \
     --network host \
-    impleo/recaster:v2.6.5
+    impleo/recaster:v2.6.6
 ```
 
 More info [here](https://impleotv.com/content/recaster/help/user-guide/running-docker.html)
 
-## Known issues
-- Duplicate platform name when duplicating the same platform. This may lead to the situation when you cannot stop the platform. Manually remove the platform from the /db/platforms folder
+## Known issues:
 
 
 ----  
