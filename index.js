@@ -29,6 +29,7 @@ let DATA = {
   date: new Date().toLocaleDateString('en-IL', {
     weekday: 'short',
     month: 'short',
+    year: 'numeric', 
     day: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
