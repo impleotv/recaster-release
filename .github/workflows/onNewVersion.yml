@@ -129,10 +129,10 @@ jobs:
           tree -L 2 ${{ github.workspace }}
 
       - name: Create target directory
-        run: mkdir -p ./Stanag2WebRtc/linux-x64
+        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/linux-x64
 
       - name: Extract LinuxDist.tar.gz
-        run: tar -xzf linuxDist.tar.gz -C ./Stanag2WebRtc/linux-x64 --strip-components=1
+        run: cd ./recaster && tar -xzf ./linuxDist.tar.gz -C ./Stanag2WebRtc/linux-x64 --strip-components=1
 
       - name: List files in the repository
         run: |
