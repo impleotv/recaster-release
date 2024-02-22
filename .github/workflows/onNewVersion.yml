@@ -132,7 +132,8 @@ jobs:
       - name: Extract LinuxDist.tar.gz
         run: |
           cd ./recaster
-          tar -xzf linuxDist.tar.gz -C Stanag2WebRtc/linux-x64 --strip-components=1
+          run: mkdir -p ./Stanag2WebRtc/linux-x64
+          tar -xzf linuxDist.tar.gz -C ./Stanag2WebRtc/linux-x64 --strip-components=1
 
       - name: List files in the repository
         run: |
