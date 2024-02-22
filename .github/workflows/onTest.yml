@@ -47,6 +47,17 @@ jobs:
           asset_url="${{ steps.get_release.outputs.asset_url }}"
           wget "$asset_url" -O winDist.zip          
 
+      - name: Confirm downloaded file
+        run: ls -l ./recaster
+      
+      - name: Extract WinDist
+        run: |
+          cd ./recaster
+          ls -l  # Print contents of the current directory for debugging
+          mkdir -p ./Stanag2WebRtc/win
+          unzip -q ./winDist.zip -d ./Stanag2WebRtc/win
+
+
       - name: List files in the repository
         run: |
           tree -L 2 ${{ github.workspace }}
