@@ -22,8 +22,11 @@ jobs:
 
       - name: Get tag name
         id: get_tag
-        run: echo "TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})" >> $GITHUB_ENV
- 
+        run: |
+          TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})
+          echo "Tag name is: $TAG_NAME"
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+  
       - name: Checkout recaster
         uses: actions/checkout@v2
         with:
@@ -31,6 +34,10 @@ jobs:
           token: ${{ secrets.RECASTER_REPO_TOKEN }}
           ref: ${{ env.TAG_NAME }}
           path: ./recaster       
+
+      - name: List files in the repository
+        run: |
+          tree ${{ github.workspace }}
 
       - name: Download and Extract ffmpeg for win
         run: |
