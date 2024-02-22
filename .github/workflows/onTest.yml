@@ -42,10 +42,10 @@ jobs:
 # --------------------------------------------
       - name: Download winDist.zip
         run: |
-          mkdir recaster
-          cd ./recaster 
-          asset_url="${{ steps.get_release.outputs.asset_url }}"
-          wget "$asset_url" -O winDist.zip          
+          mkdir -p ${{ github.workspace }}/recaster/Stanag2WebRtc
+          cd ${{ github.workspace }}/recaster/Stanag2WebRtc
+          curl -LO "${{ steps.get_release.outputs.asset_url }}"
+
 
       - name: Confirm downloaded file
         run: ls -l ./recaster
