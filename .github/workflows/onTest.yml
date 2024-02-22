@@ -27,17 +27,16 @@ jobs:
           TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})
           echo "Tag name is: $TAG_NAME"
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
-
+      
       - name: Get Stanag2WebRtc release information
         id: get_release
-        run: |       
-          # tag_name="${{ env.TAG_NAME }}"
+        run: |
           tag_name="v2.0.0"
           release_id=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/tags/$tag_name" | jq -r '.id')
           asset_url=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/$release_id" | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url')
-          echo "::set-output name=asset_url::$asset_url"
+          echo "asset_url=$asset_url" >> $GITHUB_ENV
           asset_url_win=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/$release_id" | jq -r '.assets[] | select(.name == "winDist.zip") | .browser_download_url')
-          echo "::set-output name=asset_url_win::$asset_url_win"
+          echo "asset_url_win=$asset_url_win" >> $GITHUB_ENV
 
   
 # --------------------------------------------
@@ -46,6 +45,7 @@ jobs:
           mkdir -p ${{ github.workspace }}/recaster/Stanag2WebRtc
           cd ${{ github.workspace }}/recaster/Stanag2WebRtc
           curl -LO "${{ steps.get_release.outputs.asset_url_win }}"
+          tree ${{ github.workspace }}
 
 
       - name: Confirm downloaded file
