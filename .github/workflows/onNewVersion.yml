@@ -145,18 +145,18 @@ jobs:
 
       - name: List files in the repository
         run: |
-          tree -L 2 ${{ github.workspace }}
+          tree -L 3 ${{ github.workspace }}
 
 # --------------------------------------------
-      - name: Create Linux Release
+      - name: Build Linux Release
         run: cd ./recaster && npm run create-installLinux
 
-      - name: Create Windows Release
+      - name: Build Windows Release
         run: cd ./recaster && npm run create-installWin
 
       - name: List files in the repository
         run: |
-          tree -L 2 ${{ github.workspace }}
+          tree -L 3 ${{ github.workspace }}
 
       - name: Set env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
@@ -172,7 +172,7 @@ jobs:
         run: |
           tree -L 2 ${{ github.workspace }}
 
-      - name: Create release 
+      - name: Create Windows release 
         uses: actions/create-release@v1
         id: create_release
         env:
