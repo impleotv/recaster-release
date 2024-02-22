@@ -150,8 +150,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./recaster/recaster-install.tar.gz
-          asset_name: recaster-install.tar.gz
+          asset_path: ./recaster/recaster-install-linux.tar.gz
+          asset_name: recaster-install-linux.tar.gz
           asset_content_type: application/gzip
 
       - name: Upload zip artifact
@@ -160,8 +160,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./recaster/recaster-install.7z
-          asset_name: recaster-install.7z
+          asset_path: ./recaster/recaster-install-win.7z
+          asset_name: recaster-install-win.7z
           asset_content_type: application/x-7z-compressed
 
       - name: Upload README.md
