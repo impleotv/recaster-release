@@ -48,12 +48,12 @@ jobs:
 
 
       - name: Confirm downloaded file
-        run: ls -l ./recaster
+        run: ls -la ./recaster
       
       - name: Extract WinDist
         run: |
           cd ./recaster
-          ls -l  # Print contents of the current directory for debugging
+          ls -la  # Print contents of the current directory for debugging
           mkdir -p ./Stanag2WebRtc/win
           unzip -q ./winDist.zip -d ./Stanag2WebRtc/win
 
