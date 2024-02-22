@@ -39,6 +39,15 @@ jobs:
         run: |
           tree ${{ github.workspace }}
 
+
+      - name: Setup NodeJs 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+      
+      - name: Install dependencies
+        run: cd ./recaster && npm install
+
       - name: Download and Extract ffmpeg for win
         run: |
           wget https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z
@@ -78,13 +87,6 @@ jobs:
         run: |
           tree ${{ github.workspace }}
 
-      - name: Setup NodeJs 18.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18.x'
-      
-      - name: Install dependencies
-        run: npm install
 
       # - name: Cache dependencies and build outputs to improve workflow execution time.
       #   uses: actions/cache@v3
@@ -102,9 +104,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install mkdocs
           pip install mkdocs-macros-plugin
-
-      - name: Install dependencies
-        run: cd ./recaster && npm install
 
       - name: Build Recaster
         run: cd ./recaster && npm run build
