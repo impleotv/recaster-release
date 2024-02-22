@@ -15,10 +15,11 @@ jobs:
     
     steps:
 
-      - name: Install jq and 7zip
+      - name: Install jq, unzip and 7zip
         run: |
           sudo apt-get install jq
           sudo apt-get install p7zip-full
+          sudo apt-get install unzip
 
       - name: Get tag name
         id: get_tag
@@ -82,12 +83,6 @@ jobs:
         run: |
           rm ffmpeg-release-amd64-static.tar.xz
           rm -rf ./ffmpeg-linux-tmp
-   
-      # - name: Cache dependencies and build outputs to improve workflow execution time.
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: node_modules
-      #     key: ${{ runner.os }}-js-${{ hashFiles('package-lock.json') }}
   
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -117,28 +112,42 @@ jobs:
 
           echo "::set-output name=asset_url::$asset_url"
 
-      - name: Download LinuxDist.tar.gz
+# -----------------------------------------------
+      - name: Download linuxDist.tar.gz
         run: |
           cd ./recaster 
           asset_url="${{ steps.get_release.outputs.asset_url }}"
           wget "$asset_url" -O linuxDist.tar.gz
-          cd ..
-
+    
       - name: List files in the repository
         run: |
           tree -L 2 ${{ github.workspace }}
-
-      - name: Create target directory
-        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/linux-x64
 
       - name: Extract LinuxDist.tar.gz
-        run: cd ./recaster && tar -xzf ./linuxDist.tar.gz -C ./Stanag2WebRtc/linux-x64 --strip-components=1
+        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/linux-x64 && tar -xzf ./linuxDist.tar.gz -C ./Stanag2WebRtc/linux-x64 --strip-components=1
+
+      - name: Create Linux Release
+        run: cd ./recaster && npm run create-installLinux
+
+# --------------------------------------------
+      - name: Download winDist.zip
+        run: |
+          cd ./recaster 
+          asset_url="${{ steps.get_release.outputs.asset_url }}"
+          wget "$asset_url" -O winDist.zip          
 
       - name: List files in the repository
         run: |
           tree -L 2 ${{ github.workspace }}
 
+      - name: Extract WinDist
+        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/win && unzip -q winDist.zip -d ./Stanag2WebRtc/win
 
+      - name: List files in the repository
+        run: |
+          tree -L 2 ${{ github.workspace }}
+
+# --------------------------------------------
       - name: Create Linux Release
         run: cd ./recaster && npm run create-installLinux
 
