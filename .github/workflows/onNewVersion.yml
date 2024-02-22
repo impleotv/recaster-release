@@ -20,14 +20,16 @@ jobs:
           sudo apt-get install jq
           sudo apt-get install p7zip-full
 
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Get tag name
+        id: get_tag
+        run: echo "::set-output name=tag::$(echo ${GITHUB_REF#refs/tags/})"
 
       - name: Checkout recaster
         uses: actions/checkout@v2
         with:
           repository: impleotv/recaster
           token: ${{ secrets.RECASTER_REPO_TOKEN }}
+          ref: ${{ steps.get_tag.outputs.tag }}
           path: ./recaster       
 
       - name: Download and Extract ffmpeg for win
@@ -103,6 +105,12 @@ jobs:
       - name: Sleep for 4 seconds, just in case...
         run: sleep 4s
         shell: bash
+
+      - name: Create Linux Release
+        run: cd ./recaster && npm run create-installLinux
+
+      - name: Create Windows Release
+        run: cd ./recaster && npm run create-installWin
 
       - name: List files in the repository
         run: |
