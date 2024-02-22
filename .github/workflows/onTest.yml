@@ -1,0 +1,48 @@
+name: OnPushNewVersion
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+
+      - name: Install jq, unzip and 7zip
+        run: |
+          sudo apt-get install jq
+          sudo apt-get install p7zip-full
+          sudo apt-get install unzip
+
+      - name: Get tag name
+        id: get_tag
+        run: |
+          TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})
+          echo "Tag name is: $TAG_NAME"
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+  
+# --------------------------------------------
+      - name: Download winDist.zip
+        run: |
+          mkdir recaster
+          cd ./recaster 
+          asset_url="${{ steps.get_release.outputs.asset_url }}"
+          wget "$asset_url" -O winDist.zip          
+
+      - name: List files in the repository
+        run: |
+          tree -L 3 ${{ github.workspace }}
+
+      - name: Extract WinDist
+        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/win && 7z x ./winDist.zip -o./Stanag2WebRtc/win
+
+      - name: List files in the repository
+        run: |
+          tree -L 3 ${{ github.workspace }}
