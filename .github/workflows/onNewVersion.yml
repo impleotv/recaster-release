@@ -37,7 +37,7 @@ jobs:
 
       - name: List files in the repository
         run: |
-          tree ${{ github.workspace }}
+          tree -L 2 ${{ github.workspace }}
 
 
       - name: Setup NodeJs 18.x
@@ -55,7 +55,7 @@ jobs:
 
       - name: List files in the repository
         run: |
-          tree ${{ github.workspace }}
+           tree -L 2 ${{ github.workspace }}
 
       - name: Copy ffprobe win
         run: |
@@ -83,11 +83,6 @@ jobs:
           rm ffmpeg-release-amd64-static.tar.xz
           rm -rf ./ffmpeg-linux-tmp
    
-      - name: List files in the repository
-        run: |
-          tree ${{ github.workspace }}
-
-
       # - name: Cache dependencies and build outputs to improve workflow execution time.
       #   uses: actions/cache@v3
       #   with:
@@ -112,7 +107,6 @@ jobs:
         run: sleep 4s
         shell: bash
 
-
       - name: Get Stanag2WebRtc release information
         id: get_release
         run: |       
@@ -132,17 +126,17 @@ jobs:
 
       - name: List files in the repository
         run: |
-          tree ${{ github.workspace }}
+          tree -L 2 ${{ github.workspace }}
+
+      - name: Create target directory
+        run: mkdir -p ./Stanag2WebRtc/linux-x64
 
       - name: Extract LinuxDist.tar.gz
-        run: |
-          cd ./recaster
-          run: mkdir -p ./Stanag2WebRtc/linux-x64
-          tar -xzf linuxDist.tar.gz -C ./Stanag2WebRtc/linux-x64 --strip-components=1
+        run: tar -xzf linuxDist.tar.gz -C ./Stanag2WebRtc/linux-x64 --strip-components=1
 
       - name: List files in the repository
         run: |
-          tree ${{ github.workspace }}
+          tree -L 2 ${{ github.workspace }}
 
 
       - name: Create Linux Release
