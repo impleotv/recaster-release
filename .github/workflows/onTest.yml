@@ -27,6 +27,17 @@ jobs:
           TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})
           echo "Tag name is: $TAG_NAME"
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+
+      - name: Get Stanag2WebRtc release information
+        id: get_release
+        run: |       
+          # tag_name="${{ env.TAG_NAME }}"
+          tag_name="v2.0.0"
+          release_id=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/tags/$tag_name" | jq -r '.id')
+          asset_url=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/$release_id" | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url')
+
+          echo "::set-output name=asset_url::$asset_url"
+
   
 # --------------------------------------------
       - name: Download winDist.zip
