@@ -112,6 +112,30 @@ jobs:
         run: sleep 4s
         shell: bash
 
+
+      - name: Get Stanag2WebRtc release information
+        id: get_release
+        run: |       
+          tag_name="${{ env.TAG_NAME }}"
+          release_id=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/tags/$tag_name" | jq -r '.id')
+          asset_url=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/$release_id" | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url')
+
+          echo "::set-output name=asset_url::$asset_url"
+
+      - name: Download LinuxDist.tar.gz
+        run: |
+          cd ./recaster 
+          asset_url="${{ steps.get_release.outputs.asset_url }}"
+          wget "$asset_url" -O linuxDist.tar.gz
+
+      - name: Extract LinuxDist.tar.gz
+        run: cd ./recaster && tar -xzf linuxDist.tar.gz
+
+      - name: List files in the repository
+        run: |
+          tree ${{ github.workspace }}
+
+
       - name: Create Linux Release
         run: cd ./recaster && npm run create-installLinux
 
