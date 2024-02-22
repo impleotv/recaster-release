@@ -35,8 +35,9 @@ jobs:
           tag_name="v2.0.0"
           release_id=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/tags/$tag_name" | jq -r '.id')
           asset_url=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/$release_id" | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url')
-
           echo "::set-output name=asset_url::$asset_url"
+          asset_url_win=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/$release_id" | jq -r '.assets[] | select(.name == "winDist.zip") | .browser_download_url')
+          echo "::set-output name=asset_url_win::$asset_url_win"
 
   
 # --------------------------------------------
@@ -44,7 +45,7 @@ jobs:
         run: |
           mkdir -p ${{ github.workspace }}/recaster/Stanag2WebRtc
           cd ${{ github.workspace }}/recaster/Stanag2WebRtc
-          curl -LO "${{ steps.get_release.outputs.asset_url }}"
+          curl -LO "${{ steps.get_release.outputs.asset_url_win }}"
 
 
       - name: Confirm downloaded file
