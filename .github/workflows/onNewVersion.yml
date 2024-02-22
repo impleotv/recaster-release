@@ -150,7 +150,7 @@ jobs:
 # --------------------------------------------
 
       - name: Print tree structure for Stanag2WebRtc directory
-        run: tree ./Stanag2WebRtc/
+        run: tree ${{ github.workspace }}/recaster/Stanag2WebRtc/
 
 # --------------------------------------------
 
