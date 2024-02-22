@@ -141,7 +141,7 @@ jobs:
           tree -L 2 ${{ github.workspace }}
 
       - name: Extract WinDist
-        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/win && unzip -q winDist.zip -d ./Stanag2WebRtc/win
+        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/win && unzip -q ./winDist.zip -d ./Stanag2WebRtc/win
 
       - name: List files in the repository
         run: |
