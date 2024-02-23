@@ -54,26 +54,20 @@ jobs:
         run: |
           tree -L 2 ${{ github.workspace }}
 
-      - name: Extract LinuxDist.tar.gz
+      - name: Extract winDist.tar.gz
         run: cd ./recaster && mkdir -p ./Stanag2WebRtc/win && tar -xzf ./winDist.tar.gz -C ./Stanag2WebRtc/win --strip-components=1
+
+      - name: Print tree structure for Stanag2WebRtc directory
+        run: tree ${{ github.workspace }}/recaster/Stanag2WebRtc/
+
 
       - name: Create Linux Release
         run: cd ./recaster && npm run create-installLinux
 
  
-
-
-
-      - name: List files in the repository
-        run: |
-          tree -L 2 ${{ github.workspace }}
-
-
       - name: List files in the repository
         run: |
           tree -L 3 ${{ github.workspace }}
 
           
-      - name: Print tree structure for Stanag2WebRtc directory
-        run: tree ${{ github.workspace }}/recaster/Stanag2WebRtc/
 
