@@ -35,7 +35,7 @@ jobs:
           release_info=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/tags/$tag_name")
           release_id=$(echo $release_info | jq -r '.id')
           asset_url_linux=$(echo $release_info | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url')
-          asset_url_win=$(echo $release_info | jq -r '.assets[] | select(.name == "winDist.zip") | .browser_download_url')
+          asset_url_win=$(echo $release_info | jq -r '.assets[] | select(.name == "winDist.tar.gz") | .browser_download_url')
           echo "asset_url_linux=$asset_url_linux" >> $GITHUB_ENV
           echo "asset_url_win=$asset_url_win" >> $GITHUB_ENV
           echo "Linux asset URL: $asset_url_linux"
@@ -46,7 +46,7 @@ jobs:
       - name: Download winDist.tar.gz
         run: |
           cd ./recaster 
-          wget "$asset_url" -O linuxDist.tar.gz
+          wget "$asset_url_win" -O winDist.tar.gz
         env:
           asset_url_win: ${{ steps.get_release.outputs.asset_url_win }}
     
@@ -55,43 +55,20 @@ jobs:
           tree -L 2 ${{ github.workspace }}
 
       - name: Extract LinuxDist.tar.gz
-        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/linux-x64 && tar -xzf ./linuxDist.tar.gz -C ./Stanag2WebRtc/linux-x64 --strip-components=1
+        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/win && tar -xzf ./winDist.tar.gz -C ./Stanag2WebRtc/win --strip-components=1
 
       - name: Create Linux Release
         run: cd ./recaster && npm run create-installLinux
 
+ 
 
-
-      - name: Download winDist.zip
-        run: |
-          mkdir -p ${{ github.workspace }}/recaster/Stanag2WebRtc
-          cd ./recaster        
-          echo "Get Windows asset URL: $asset_url_win"
-          wget $asset_url_win -O winDist.zip     
-        env:
-          asset_url_win: ${{ steps.get_release.outputs.asset_url_win }}
-                
-      - name: Confirm downloaded file
-        run: ls -la ./recaster
-      
-      - name: Extract WinDist
-        run: |
-          cd ./recaster
-          ls -la  # Print contents of the current directory for debugging
-          mkdir -p ./Stanag2WebRtc/win
-          unzip -q ./winDist.zip -d ./Stanag2WebRtc/win
 
 
       - name: List files in the repository
         run: |
           tree -L 2 ${{ github.workspace }}
 
-      - name: Extract WinDist
-        run: |
-          cd ./recaster
-          mkdir -p ./Stanag2WebRtc/win
-          unzip -q ./winDist.zip -d ./Stanag2WebRtc/win
-      
+
       - name: List files in the repository
         run: |
           tree -L 3 ${{ github.workspace }}
