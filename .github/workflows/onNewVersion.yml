@@ -83,7 +83,7 @@ jobs:
           rm -rf ./ffmpeg-linux-tmp
   
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: 3.x
 
@@ -131,7 +131,7 @@ jobs:
           wget $URL_WIN -O winDist.tar.gz      
 
       - name: Extract WinDist
-        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/win && 7z x ./winDist.zip -o./Stanag2WebRtc/win
+        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/win && tar -xzf ./winDist.tar.gz -C ./Stanag2WebRtc/win --strip-components=1
 
       - name: List files in the repository
         run: |
