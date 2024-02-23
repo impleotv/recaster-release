@@ -19,7 +19,6 @@ jobs:
         run: |
           sudo apt-get install jq
           sudo apt-get install p7zip-full
-          sudo apt-get install unzip
 
       - name: Get tag name
         id: get_tag
@@ -29,7 +28,7 @@ jobs:
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
   
       - name: Checkout recaster
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: impleotv/recaster
           token: ${{ secrets.RECASTER_REPO_TOKEN }}
@@ -39,7 +38,6 @@ jobs:
       - name: List files in the repository
         run: |
           tree -L 2 ${{ github.workspace }}
-
 
       - name: Setup NodeJs 18.x
         uses: actions/setup-node@v4
@@ -104,41 +102,33 @@ jobs:
 
       - name: Get Stanag2WebRtc release information
         id: get_release
-        run: |       
-          # tag_name="${{ env.TAG_NAME }}"
+        run: |
           tag_name="v2.0.0"
-          release_id=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/tags/$tag_name" | jq -r '.id')
-          asset_url=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/$release_id" | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url')
-
-          echo "::set-output name=asset_url::$asset_url"
-
+          release_info=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/tags/$tag_name")
+          release_id=$(echo $release_info | jq -r '.id')
+          asset_url_linux=$(echo $release_info | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url') 
+          echo "URL_LINUX=$(echo $asset_url_linux)" >> $GITHUB_ENV
+          asset_url_win=$(echo $release_info | jq -r '.assets[] | select(.name == "winDist.tar.gz") | .browser_download_url')   
+          echo "URL_WIN=$(echo $asset_url_win)" >> $GITHUB_ENV
+          echo "Linux URL: $URL_LINUX"
+          echo "Windows URL: $URL_WIN"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
 # -----------------------------------------------
       - name: Download linuxDist.tar.gz
         run: |
-          cd ./recaster 
-          asset_url="${{ steps.get_release.outputs.asset_url }}"
-          wget "$asset_url" -O linuxDist.tar.gz
-    
-      - name: List files in the repository
-        run: |
-          tree -L 2 ${{ github.workspace }}
+          cd ./recaster        
+          wget $URL_LINUX -O linuxDist.tar.gz
 
       - name: Extract LinuxDist.tar.gz
         run: cd ./recaster && mkdir -p ./Stanag2WebRtc/linux-x64 && tar -xzf ./linuxDist.tar.gz -C ./Stanag2WebRtc/linux-x64 --strip-components=1
 
-      - name: Create Linux Release
-        run: cd ./recaster && npm run create-installLinux
-
 # --------------------------------------------
-      - name: Download winDist.zip
+      - name: Download winDist.tar.gz
         run: |
           cd ./recaster 
-          asset_url="${{ steps.get_release.outputs.asset_url }}"
-          wget "$asset_url" -O winDist.zip          
-
-      - name: List files in the repository
-        run: |
-          tree -L 2 ${{ github.workspace }}
+          wget $URL_WIN -O winDist.tar.gz      
 
       - name: Extract WinDist
         run: cd ./recaster && mkdir -p ./Stanag2WebRtc/win && 7z x ./winDist.zip -o./Stanag2WebRtc/win
@@ -176,7 +166,7 @@ jobs:
 
       - name: List files in the repository
         run: |
-          tree -L 2 ${{ github.workspace }}
+          tree -L 3 ${{ github.workspace }}
 
       - name: Create Windows release 
         uses: actions/create-release@v1
@@ -254,16 +244,6 @@ jobs:
           asset_path: docker.zip
           asset_name: docker.zip
           asset_content_type: application/zip
-
-      # - name: Upload ATP
-      #   uses: actions/upload-release-asset@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-      #     asset_path: ./recaster/ATP/ATP.docx
-      #     asset_name: ATP.docx
-      #     asset_content_type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
 
       - name: Add README, CHANGELOG, ATP abd vdd
         run: |
