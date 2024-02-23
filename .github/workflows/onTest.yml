@@ -27,6 +27,14 @@ jobs:
           TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})
           echo "Tag name is: $TAG_NAME"
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+
+      - name: Checkout recaster
+        uses: actions/checkout@v2
+        with:
+          repository: impleotv/recaster
+          token: ${{ secrets.RECASTER_REPO_TOKEN }}
+          ref: ${{ env.TAG_NAME }}
+          path: ./recaster       
           
       - name: Get Stanag2WebRtc release information
         id: get_release
