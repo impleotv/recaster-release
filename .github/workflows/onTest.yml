@@ -47,10 +47,11 @@ jobs:
         run: |
           mkdir -p ${{ github.workspace }}/recaster/Stanag2WebRtc
           cd ./recaster        
-          asset_url_win="${{ steps.get_release.outputs.asset_url_win }}"
           echo "Get Windows asset URL: $asset_url_win"
-          wget "$asset_url_win" -O winDist.zip
-
+          wget "$asset_url_win" -O winDist.zip     
+          env:
+            asset_url_win: ${{ steps.get_release.outputs.asset_url_win }}
+                
       - name: Confirm downloaded file
         run: ls -la ./recaster
       
