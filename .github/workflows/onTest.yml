@@ -43,6 +43,25 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 # --------------------------------------------
+      - name: Download winDist.tar.gz
+        run: |
+          cd ./recaster 
+          wget "$asset_url" -O linuxDist.tar.gz
+        env:
+          asset_url_win: ${{ steps.get_release.outputs.asset_url_win }}
+    
+      - name: List files in the repository
+        run: |
+          tree -L 2 ${{ github.workspace }}
+
+      - name: Extract LinuxDist.tar.gz
+        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/linux-x64 && tar -xzf ./linuxDist.tar.gz -C ./Stanag2WebRtc/linux-x64 --strip-components=1
+
+      - name: Create Linux Release
+        run: cd ./recaster && npm run create-installLinux
+
+
+
       - name: Download winDist.zip
         run: |
           mkdir -p ${{ github.workspace }}/recaster/Stanag2WebRtc
