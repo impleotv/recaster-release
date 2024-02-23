@@ -36,6 +36,9 @@ jobs:
           release_id=$(echo $release_info | jq -r '.id')
           asset_url_linux=$(echo $release_info | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url')
           asset_url_win=$(echo $release_info | jq -r '.assets[] | select(.name == "winDist.tar.gz") | .browser_download_url')
+          echo "::set-output name=asset_url_linux::$asset_url_linux"
+          echo "::set-output name=asset_url_win::$asset_url_win"
+          
           echo "asset_url_linux=$asset_url_linux" >> $GITHUB_ENV
           echo "asset_url_win=$asset_url_win" >> $GITHUB_ENV
           echo "Linux asset URL: $asset_url_linux"
