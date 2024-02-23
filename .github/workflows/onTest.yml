@@ -34,14 +34,13 @@ jobs:
           tag_name="v2.0.0"
           release_info=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/tags/$tag_name")
           release_id=$(echo $release_info | jq -r '.id')
-          asset_url_linux=$(echo $release_info | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url')           
+          asset_url_linux=$(echo $release_info | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url') 
           asset_url_win=$(echo $release_info | jq -r '.assets[] | select(.name == "winDist.tar.gz") | .browser_download_url')                       
-
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           url_linux: ${{ steps.get_release.outputs.asset_url_linux }}
           url_win: ${{ steps.get_release.outputs.asset_url_win }}
-
+       
       - name: Display URLs
         run: |
           echo "Linux URL: $url_linux"
