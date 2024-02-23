@@ -156,13 +156,13 @@ jobs:
 
       - name: Set env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
       - name: Check version
         run: |
           echo $RELEASE_VERSION
-          echo ${{ env.RELEASE_VERSION }}   
 
       - name: Generate README file
-        run: node index.js ${{env.RELEASE_VERSION }}
+        run: cd ./recaster && node index.js ${{env.RELEASE_VERSION }}
 
       - name: List files in the repository
         run: |
