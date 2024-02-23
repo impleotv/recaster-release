@@ -49,8 +49,8 @@ jobs:
           cd ./recaster        
           echo "Get Windows asset URL: $asset_url_win"
           wget $asset_url_win -O winDist.zip     
-          env:
-            asset_url_win: ${{ steps.get_release.outputs.asset_url_win }}
+        env:
+          asset_url_win: ${{ steps.get_release.outputs.asset_url_win }}
                 
       - name: Confirm downloaded file
         run: ls -la ./recaster
