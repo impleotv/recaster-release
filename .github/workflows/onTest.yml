@@ -19,7 +19,6 @@ jobs:
         run: |
           sudo apt-get install jq
           sudo apt-get install p7zip-full
-          sudo apt-get install unzip
 
       - name: Get tag name
         id: get_tag
@@ -29,7 +28,7 @@ jobs:
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
 
       - name: Checkout recaster
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: impleotv/recaster
           token: ${{ secrets.RECASTER_REPO_TOKEN }}
