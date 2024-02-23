@@ -35,29 +35,23 @@ jobs:
           release_info=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/tags/$tag_name")
           release_id=$(echo $release_info | jq -r '.id')
           asset_url_linux=$(echo $release_info | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url') 
-          asset_url_win=$(echo $release_info | jq -r '.assets[] | select(.name == "winDist.tar.gz") | .browser_download_url')                       
+          echo "URL_LINUX=$(echo $asset_url_linux" >> $GITHUB_ENV
+          asset_url_win=$(echo $release_info | jq -r '.assets[] | select(.name == "winDist.tar.gz") | .browser_download_url')   
+          echo "URL_WIN=$(echo $asset_url_win" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          url_linux: ${{ steps.get_release.outputs.asset_url_linux }}
-          url_win: ${{ steps.get_release.outputs.asset_url_win }}
        
       - name: Display URLs
         run: |
-          echo "Linux URL: $url_linux"
-          echo "Windows URL: $url_win"
-        env:
-          url_linux: ${{ steps.get_release.outputs.url_linux }}
-          url_win: ${{ steps.get_release.outputs.url_win }}
+          echo "Linux URL: $URL_LINUX"
+          echo "Windows URL: $URL_WIN"
 
 # -----------------------------------------------
       - name: Download linuxDist.tar.gz
         run: |
           cd ./recaster        
-          wget "$url_linux" -O linuxDist.tar.gz
-        env:
-          url_linux: ${{ steps.get_release.outputs.url_linux }}
-
-     
+          wget "$URL_LINUX" -O linuxDist.tar.gz
+   
     
       - name: List files in the repository
         run: |
