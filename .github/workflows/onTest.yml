@@ -27,22 +27,21 @@ jobs:
           TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})
           echo "Tag name is: $TAG_NAME"
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
-      
+          
       - name: Get Stanag2WebRtc release information
         id: get_release
         run: |
           tag_name="v2.0.0"
-          release_id=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/tags/$tag_name" | jq -r '.id')
-          asset_url=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/$release_id" | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url')
-          echo "asset_url=$asset_url" >> $GITHUB_ENV
-  
-      - name: Get Stanag2WebRtc win release information
-        id: get_release_win
-        run: |
-          tag_name="v2.0.0"
-          release_id=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/tags/$tag_name" | jq -r '.id')
-          asset_url_win=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/$release_id" | jq -r '.assets[] | select(.name == "winDist.zip") | .browser_download_url')
+          release_info=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/impleotv/stanag2webrtc-release/releases/tags/$tag_name")
+          release_id=$(echo $release_info | jq -r '.id')
+          asset_url_linux=$(echo $release_info | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url')
+          asset_url_win=$(echo $release_info | jq -r '.assets[] | select(.name == "winDist.zip") | .browser_download_url')
+          echo "asset_url_linux=$asset_url_linux" >> $GITHUB_ENV
           echo "asset_url_win=$asset_url_win" >> $GITHUB_ENV
+          echo "Linux asset URL: $asset_url_linux"
+          echo "Windows asset URL: $asset_url_win"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 # --------------------------------------------
       - name: Download winDist.zip
         run: |
