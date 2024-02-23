@@ -50,7 +50,7 @@ jobs:
       - name: Download linuxDist.tar.gz
         run: |
           cd ./recaster        
-          wget "$URL_LINUX" -O linuxDist.tar.gz
+          wget $URL_LINUX -O linuxDist.tar.gz
    
     
       - name: List files in the repository
@@ -68,10 +68,7 @@ jobs:
       - name: Download winDist.tar.gz
         run: |
           cd ./recaster 
-          asset_url_win="${{ steps.get_release.outputs.asset_url_win }}"
-          wget $asset_url_win -O winDist.tar.gz
-  #      env:
-  #        asset_url_win: ${{ steps.get_release.outputs.asset_url_win }}
+          wget $URL_WIN -O winDist.tar.gz
     
       - name: List files in the repository
         run: |
@@ -83,11 +80,6 @@ jobs:
       - name: Print tree structure for Stanag2WebRtc directory
         run: tree ${{ github.workspace }}/recaster/Stanag2WebRtc/
 
-
-      - name: Create Linux Release
-        run: cd ./recaster && npm run create-installLinux
-
- 
       - name: List files in the repository
         run: |
           tree -L 3 ${{ github.workspace }}
