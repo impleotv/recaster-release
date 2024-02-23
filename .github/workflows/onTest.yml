@@ -51,7 +51,7 @@ jobs:
         run: |
           cd ./recaster 
           asset_url_linux="${{ steps.get_release.outputs.asset_url_linux }}"
-          wget "$asset_url_linux" -O linuxDist.tar.gz
+          wget $asset_url_linux -O linuxDist.tar.gz
     
       - name: List files in the repository
         run: |
@@ -69,7 +69,7 @@ jobs:
         run: |
           cd ./recaster 
           asset_url_win="${{ steps.get_release.outputs.asset_url_win }}"
-          wget "$asset_url_win" -O winDist.tar.gz
+          wget $asset_url_win -O winDist.tar.gz
   #      env:
   #        asset_url_win: ${{ steps.get_release.outputs.asset_url_win }}
     
