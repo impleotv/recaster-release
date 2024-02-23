@@ -42,13 +42,33 @@ jobs:
           echo "Windows asset URL: $asset_url_win"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+# -----------------------------------------------
+      - name: Download linuxDist.tar.gz
+        run: |
+          cd ./recaster 
+          asset_url_linux="${{ steps.get_release.outputs.asset_url_linux }}"
+          wget "$asset_url_linux" -O linuxDist.tar.gz
+    
+      - name: List files in the repository
+        run: |
+          tree -L 2 ${{ github.workspace }}
+
+      - name: Extract LinuxDist.tar.gz
+        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/linux-x64 && tar -xzf ./linuxDist.tar.gz -C ./Stanag2WebRtc/linux-x64 --strip-components=1
+
+ #     - name: Create Linux Release
+ #       run: cd ./recaster && npm run create-installLinux
+
+          
 # --------------------------------------------
       - name: Download winDist.tar.gz
         run: |
           cd ./recaster 
+          asset_url_win="${{ steps.get_release.outputs.asset_url_win }}"
           wget "$asset_url_win" -O winDist.tar.gz
-        env:
-          asset_url_win: ${{ steps.get_release.outputs.asset_url_win }}
+  #      env:
+  #        asset_url_win: ${{ steps.get_release.outputs.asset_url_win }}
     
       - name: List files in the repository
         run: |
