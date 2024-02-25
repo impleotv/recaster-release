@@ -19,15 +19,15 @@ OS: Linux, Windows
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **Recaster (7z)** |  v2.6.6 | [recaster-install.7z](https://github.com/impleotv/recaster-release/releases/download/v2.6.6/recaster-install.7z)  | 
-| **Recaster (tar.gz)** |  v2.6.6 | [recaster-install.tar.gz](https://github.com/impleotv/recaster-release/releases/download/v2.6.6/recaster-install.tar.gz)  | 
+| **Recaster for Windows (7z)** |  v2.7.0 | [recaster-install-win.7z](https://github.com/impleotv/recaster-release/releases/download/v2.7.0/recaster-install-win.7z)  | 
+| **Recaster for Linux (tar.gz)** |  v2.7.0 | [recaster-install-linux.tar.gz](https://github.com/impleotv/recaster-release/releases/download/v2.7.0/recaster-install-linux.tar.gz)  | 
 
-*Released on Mon, 19 Feb, 12:05 GMT+2*
+*Released on Sun, 25 Feb 2024, 09:15 GMT+2*
 
 
 The installation and configuration instructions can be found [here](https://impleotv.com/content/recaster/help/).
 
-
+> Note: To enable video preview functionality, GStreamer must be installed. The Docker image includes GStreamer pre-installed, eliminating the need for additional installations.
 
 ## Docker
 
@@ -42,7 +42,7 @@ docker run -d \
     -v recasterdb:/recaster/db/ \
     -v recasterlic:/recaster/licenses/ \
     --network host \
-    impleo/recaster:v2.6.6
+    impleo/recaster:v2.7.0
 ```
 
 More info [here](https://impleotv.com/content/recaster/help/user-guide/running-docker.html)

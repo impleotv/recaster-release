@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.0](https://github.com/impleotv/recaster/compare/v2.6.7...v2.7.0) (2024-02-20)
+
+### Features
+
+-   Add WebRtc preview
+-   Separate versions for Windows and Linux ([99a9ca1](https://github.com/impleotv/recaster/commit/99a9ca1318d9c95301840de2474bc8b1853aae07))
+
+### [2.6.7](https://github.com/impleotv/recaster/compare/v2.6.6...v2.6.7) (2024-02-20)
+
+### Bug Fixes
+
+-   Update dependencies ([9637dba](https://github.com/impleotv/recaster/commit/9637dba2252d37ff6f815e60d800c42fb3d9b8ad))
+
 ### [2.6.6]
 
 -   Allow duplicate input multicast url for the channel
