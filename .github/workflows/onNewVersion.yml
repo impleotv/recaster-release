@@ -162,7 +162,7 @@ jobs:
       - name: Checkout recaster
         uses: actions/checkout@v4
 
-       - name: Install dependencies
+      - name: Install dependencies
         run: npm install
 
       - name: Generate README file
