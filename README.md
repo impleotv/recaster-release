@@ -49,9 +49,9 @@ More info [here](https://impleotv.com/content/recaster/help/user-guide/running-d
 
 ## Known issues:
 
-Some antiviruses have false positives reports on Stanag2WebRtc.eve executable, compiled in golang.
-More info on that [Why does my virus-scanning software think my Go distribution or compiled binary is infected?](https://go.dev/doc/faq#virus)
-There is very little that we can do about it...
+Some antivirus programs generate false positive reports on the Stanag2WebRtc.eve executable, compiled in Golang.   
+More info on that [Why does my virus-scanning software think my Go distribution or compiled binary is infected?](https://go.dev/doc/faq#virus)  
+There is very little that we can do about it...  
 
 ----  
 *Please don't hesitate to contact us at support@impleotv.com should you have any question.*
