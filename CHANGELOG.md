@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.2](https://github.com/impleotv/recaster/compare/v2.7.1...v2.7.2) (2024-02-25)
+
+### Bug Fixes
+
+-   Exclude linux files from Windows version ([d443304](https://github.com/impleotv/recaster/commit/d443304cfa33f69c03b007841998a20534221c6e))
+-   Update version creation ([413cf21](https://github.com/impleotv/recaster/commit/413cf21d0562eb4281b6d89b6a4884b83e1d77b4))
+
+### [2.7.1](https://github.com/impleotv/recaster/compare/v2.7.0...v2.7.1) (2024-02-25)
+
+### Bug Fixes
+
+-   Add initial serverStatus ([e5ef1b8](https://github.com/impleotv/recaster/commit/e5ef1b80e763fcc1c2449ed9bcfb9264d631d43c))
+-   Update dependencies ([f206b13](https://github.com/impleotv/recaster/commit/f206b133171cd84e1515218d2a08ba3d33e367f0))
+
 ## [2.7.0](https://github.com/impleotv/recaster/compare/v2.6.7...v2.7.0) (2024-02-20)
 
 ### Features
