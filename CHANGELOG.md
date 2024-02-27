@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.3](https://github.com/impleotv/recaster/compare/v2.7.2...v2.7.3) (2024-02-27)
+
+### Bug Fixes
+
+-   Fix colorbars size on timeout ([a08f6df](https://github.com/impleotv/recaster/commit/a08f6df54772a028ba1b0e005652ac9c6ca80a89))
+-   Update manual ([1ee147b](https://github.com/impleotv/recaster/commit/1ee147bdc69dff35e90ee9e8fbd75c0dec84d884))
+
 ### [2.7.2](https://github.com/impleotv/recaster/compare/v2.7.1...v2.7.2) (2024-02-25)
 
 ### Bug Fixes
