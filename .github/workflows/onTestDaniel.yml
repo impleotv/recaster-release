@@ -1,0 +1,22 @@
+name: OnTest
+
+on:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+       
+      - name: Display URLs
+        run: |
+          echo "deb [trusted=yes] https://github.com/danielchernilov/streamer/releases/download/v1.0.6/ stable main" | sudo tee /etc/apt/sources.list.d/github-streamer.list
+          sudo apt install livestreamer
+    
+      - name: List files in the repository
+        run: |          
+          tree -L 2 ${{ github.workspace }}
