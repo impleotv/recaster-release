@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.8.0](https://github.com/impleotv/recaster/compare/v2.7.4...v2.8.0) (2024-04-13)
+
+### Features
+
+-   Add User management ([ecf82fa](https://github.com/impleotv/recaster/commit/ecf82fa5a30d4c0cfbc2edc33d99bd2f558f82e9))
+-   Add TCP support
+-   Add Authentcation and authorization
+
+### [2.7.4](https://github.com/impleotv/recaster/compare/v2.7.3...v2.7.4) (2024-04-13)
+
+### Bug Fixes
+
+-   Demo mode ([f66142b](https://github.com/impleotv/recaster/commit/f66142b0c07a897ba0441c66894a0cfd71b663ae))
+-   Fix logout ([602bdc6](https://github.com/impleotv/recaster/commit/602bdc6b7a0a89a29175050e9bf82b3d2391cab0))
+-   Implement usergroups ([8072ca1](https://github.com/impleotv/recaster/commit/8072ca1ac4f039cde386cc5a124716b90b31fda8))
+-   Modify license context implementation ([784f6b3](https://github.com/impleotv/recaster/commit/784f6b38fda847f5d0b63cd9f6bec90dd1ae4d6c))
+-   Modify license context implementation ([6782fd8](https://github.com/impleotv/recaster/commit/6782fd8e120f0958761e228b150f36835f31cf36))
+-   Modify vite config ([8b1bff2](https://github.com/impleotv/recaster/commit/8b1bff213c2cef8a7378129fcc82705a84ad5f5f))
+-   Show Add to wall only when video is enabled ([40cda89](https://github.com/impleotv/recaster/commit/40cda8965fb90fb64ff78fce06dce9035554aeea))
+-   Update ATP ([3e1dcf5](https://github.com/impleotv/recaster/commit/3e1dcf5e40afde32db49fb9d76ee2b0ed936fc1a))
+-   Update dependencies ([8122456](https://github.com/impleotv/recaster/commit/8122456ec5cc57990fd8ed4913635d744e7340d2))
+-   Update dependencies ([03676e0](https://github.com/impleotv/recaster/commit/03676e015e73eab559e13fed95be50ff96a16aa6))
+-   Update dependencies ([f5979e4](https://github.com/impleotv/recaster/commit/f5979e411da0f2d7b6383e9df9532bda61d6b74d))
+
 ### [2.7.3](https://github.com/impleotv/recaster/compare/v2.7.2...v2.7.3) (2024-02-27)
 
 ### Bug Fixes
