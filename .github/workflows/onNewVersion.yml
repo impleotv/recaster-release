@@ -102,8 +102,6 @@ jobs:
       - name: Build Recaster
         run: | 
           cd ./recaster && npm run build
-          npm run create-installLinux
-          npm run create-installWin
 
       - name: Sleep for 4 seconds, just in case...
         run: sleep 4s
@@ -166,8 +164,7 @@ jobs:
       - name: Set env
         run: |
           echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-           echo $RELEASE_VERSION
-
+          echo $RELEASE_VERSION
 
       - name: Generate README file
         run: node index.js $RELEASE_VERSION
