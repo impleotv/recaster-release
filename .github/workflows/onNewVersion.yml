@@ -100,7 +100,10 @@ jobs:
           pip install mkdocs-macros-plugin
 
       - name: Build Recaster
-        run: cd ./recaster && npm run build
+        run: | 
+          cd ./recaster && npm run build
+          npm run create-installLinux
+          npm run create-installWin
 
       - name: Sleep for 4 seconds, just in case...
         run: sleep 4s
