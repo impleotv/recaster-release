@@ -51,7 +51,7 @@ jobs:
           node-version: '18.x'
       
       - name: Install dependencies
-        run: cd ./recaster && npm install
+        run: cd ./recaster && npm install --legacy-peer-deps
 
       - name: Download and Extract ffmpeg for win
         run: |
