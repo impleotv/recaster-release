@@ -55,7 +55,7 @@ jobs:
 
       - name: Download and Extract ffmpeg for win
         run: |
-          wget https://www.gyan.dev/ffmpeg/builds/ffmpeg-6.1.1-full_build.7z
+          wget https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-6.1.1-full_build.7z
           7z x ffmpeg-6.1.1-full_build.7z -o./ffmpeg-tmp
 
       - name: List files in the repository
@@ -74,7 +74,7 @@ jobs:
 
       - name: Download and Extract ffmpeg Linux
         run: |
-          wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-6.0.1-amd64-static.tar.xz 
+          wget https://www.johnvansickle.com/ffmpeg/old-releases/ffmpeg-6.0.1-amd64-static.tar.xz
           mkdir -p ffmpeg-linux-tmp
           tar -xf  ffmpeg-6.0.1-amd64-static.tar.xz  -C ffmpeg-linux-tmp --strip-components=1
 
