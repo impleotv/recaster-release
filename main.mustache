@@ -29,6 +29,10 @@ The installation and configuration instructions can be found [here](https://impl
 
 > Note: To enable video preview functionality, GStreamer must be installed. The Docker image includes GStreamer pre-installed, eliminating the need for additional installations.
 
+
+> Offline installation: When starting the application with a .bat or .sh command, it checks if the node_modules folder exists. If it doesn't exist, the script automatically downloads the dependencies and creates the folder. Therefore, if your target machine lacks an internet connection, execute this command first on a machine connected to the internet, then copy the node_modules directory to your offline machine.
+
+
 ## Docker
 
 Use the docker-compose.yml file that accompanies the release, or use the following command to run the Docker image:
