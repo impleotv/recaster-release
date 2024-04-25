@@ -22,12 +22,16 @@ OS: Linux, Windows
 | **Recaster for Windows (7z)** |  v2.8.0 | [recaster-install-win.7z](https://github.com/impleotv/recaster-release/releases/download/v2.8.0/recaster-install-win.7z)  | 
 | **Recaster for Linux (tar.gz)** |  v2.8.0 | [recaster-install-linux.tar.gz](https://github.com/impleotv/recaster-release/releases/download/v2.8.0/recaster-install-linux.tar.gz)  | 
 
-*Released on Thu, 25 Apr 2024, 09:34 GMT+3*
+*Released on Thu, 25 Apr 2024, 11:55 GMT+3*
 
 
 The installation and configuration instructions can be found [here](https://impleotv.com/content/recaster/help/).
 
 > Note: To enable video preview functionality, GStreamer must be installed. The Docker image includes GStreamer pre-installed, eliminating the need for additional installations.
+
+
+> Offline installation: When starting the application with a .bat or .sh command, it checks if the node_modules folder exists. If it doesn't exist, the script automatically downloads the dependencies and creates the folder. Therefore, if your target machine lacks an internet connection, execute this command first on a machine connected to the internet, then copy the node_modules directory to your offline machine.
+
 
 ## Docker
 
