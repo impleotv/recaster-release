@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.8.2](https://github.com/impleotv/recaster/compare/v2.8.1...v2.8.2) (2024-04-28)
+
+### Bug Fixes
+
+-   Make exported platforms and channels stopped ([869d61d](https://github.com/impleotv/recaster/commit/869d61d079117003044b535b1a50f6b47daf282e))
+
 ### [2.8.1](https://github.com/impleotv/recaster/compare/v2.8.0...v2.8.1) (2024-04-25)
 
 ## [2.8.0](https://github.com/impleotv/recaster/compare/v2.7.4...v2.8.0) (2024-04-13)
