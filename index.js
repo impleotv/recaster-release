@@ -26,6 +26,7 @@ if(!args[0]) {
 
 let DATA = {
   version: args[0] || pjsonRecaster.version,
+  ver: args[0].replace(/^v/, ''),
   date: new Date().toLocaleDateString('en-IL', {
     weekday: 'short',
     month: 'short',
