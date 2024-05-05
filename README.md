@@ -27,6 +27,8 @@ OS: Linux, Windows
 
 The installation and configuration instructions can be found [here](https://impleotv.com/content/recaster/help/).
 
+Application requires Nodejs 18.20.2 LTS.
+
 > Note: To enable video preview functionality, GStreamer must be installed. The Docker image includes GStreamer pre-installed, eliminating the need for additional installations.
 
 
