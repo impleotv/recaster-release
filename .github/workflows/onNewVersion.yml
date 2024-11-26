@@ -55,8 +55,8 @@ jobs:
 
       - name: Download and Extract ffmpeg for win
         run: |
-          wget https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-6.1.1-full_build.7z
-          7z x ffmpeg-6.1.1-full_build.7z -o./ffmpeg-tmp
+          wget https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z
+          7z x ffmpeg-release-full.7z -o./ffmpeg-tmp
 
       - name: List files in the repository
         run: |
@@ -65,11 +65,11 @@ jobs:
       - name: Copy ffprobe win
         run: |
           mkdir -p ./recaster/ffmpeg/win
-          cp ./ffmpeg-tmp/ffmpeg-6.1.1-full_build/bin/ffprobe.exe ./recaster/ffmpeg/win/
+          cp ./ffmpeg-tmp/ffmpeg-release-full/bin/ffprobe.exe ./recaster/ffmpeg/win/
 
-      - name: Delete ffmpeg-6.1.1-full_build.7z and ffmpeg-tmp directory
+      - name: Delete ffmpeg-release-full.7z and ffmpeg-tmp directory
         run: |
-          rm ffmpeg-6.1.1-full_build.7z
+          rm ffmpeg-release-full.7z
           rm -rf ./ffmpeg-tmp
 
       - name: Download and Extract ffmpeg Linux
