@@ -115,10 +115,10 @@ jobs:
           release_id=$(echo $release_info | jq -r '.id')
           asset_url_linux=$(echo $release_info | jq -r '.assets[] | select(.name == "linuxDist.tar.gz") | .browser_download_url') 
           echo "URL_LINUX=$(echo $asset_url_linux)" >> $GITHUB_ENV
-          asset_url_win=$(echo $release_info | jq -r '.assets[] | select(.name == "winDist.tar.gz") | .browser_download_url')   
-          echo "URL_WIN=$(echo $asset_url_win)" >> $GITHUB_ENV
           echo "Linux URL: $URL_LINUX"
-          echo "Windows URL: $URL_WIN"
+#          asset_url_win=$(echo $release_info | jq -r '.assets[] | select(.name == "winDist.tar.gz") | .browser_download_url')   
+#          echo "URL_WIN=$(echo $asset_url_win)" >> $GITHUB_ENV
+#         echo "Windows URL: $URL_WIN"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
@@ -154,8 +154,8 @@ jobs:
       - name: Build Linux Release
         run: cd ./recaster && npm run create-installLinux
 
-      - name: Build Windows Release
-        run: cd ./recaster && npm run create-installWin
+   #   - name: Build Windows Release
+   #     run: cd ./recaster && npm run create-installWin
 
       - name: List files in the repository
         run: |
