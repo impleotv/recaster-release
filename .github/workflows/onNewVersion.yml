@@ -53,24 +53,24 @@ jobs:
       - name: Install dependencies
         run: cd ./recaster && npm install --legacy-peer-deps
 
-      - name: Download and Extract ffmpeg for win
-        run: |
-          wget https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z
-          7z x ffmpeg-release-full.7z -o./ffmpeg-tmp
+  #    - name: Download and Extract ffmpeg for win
+  #      run: |
+  #        wget https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z
+  #        7z x ffmpeg-release-full.7z -o./ffmpeg-tmp
 
       - name: List files in the repository
         run: |
            tree -L 2 ${{ github.workspace }}
 
-      - name: Copy ffprobe win
-        run: |
-          mkdir -p ./recaster/ffmpeg/win
-          cp ./ffmpeg-tmp/ffmpeg-release-full/bin/ffprobe.exe ./recaster/ffmpeg/win/
+   #   - name: Copy ffprobe win
+   #     run: |
+   #       mkdir -p ./recaster/ffmpeg/win
+   #       cp ./ffmpeg-tmp/ffmpeg-release-full/bin/ffprobe.exe ./recaster/ffmpeg/win/
 
-      - name: Delete ffmpeg-release-full.7z and ffmpeg-tmp directory
-        run: |
-          rm ffmpeg-release-full.7z
-          rm -rf ./ffmpeg-tmp
+   #   - name: Delete ffmpeg-release-full.7z and ffmpeg-tmp directory
+   #     run: |
+   #       rm ffmpeg-release-full.7z
+   #       rm -rf ./ffmpeg-tmp
 
       - name: Download and Extract ffmpeg Linux
         run: |
@@ -132,17 +132,17 @@ jobs:
         run: cd ./recaster && mkdir -p ./Stanag2WebRtc/linux-x64 && tar -xzf ./linuxDist.tar.gz -C ./Stanag2WebRtc/linux-x64 --strip-components=1
 
 # --------------------------------------------
-      - name: Download winDist.tar.gz
-        run: |
-          cd ./recaster 
-          wget $URL_WIN -O winDist.tar.gz      
+#      - name: Download winDist.tar.gz
+#        run: |
+#          cd ./recaster 
+#          wget $URL_WIN -O winDist.tar.gz      
 
-      - name: Extract WinDist
-        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/win && tar -xzf ./winDist.tar.gz -C ./Stanag2WebRtc/win --strip-components=1
+#      - name: Extract WinDist
+#        run: cd ./recaster && mkdir -p ./Stanag2WebRtc/win && tar -xzf ./winDist.tar.gz -C ./Stanag2WebRtc/win --strip-components=1
 
-      - name: List files in the repository
-        run: |
-          tree -L 3 ${{ github.workspace }}
+#      - name: List files in the repository
+#        run: |
+#          tree -L 3 ${{ github.workspace }}
 
 # --------------------------------------------
 
@@ -173,19 +173,19 @@ jobs:
         run: |
           tree -L 3 ${{ github.workspace }}
 
-      - name: Create Windows release 
-        uses: actions/create-release@v1
-        id: create_release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          draft: false
-          prerelease: false
-          release_name: ${{ steps.version.outputs.version }}
-          tag_name: ${{ github.ref }}
-          body: |
-            Recaster release
-            - tar, 7z archives
+#      - name: Create Windows release 
+#        uses: actions/create-release@v1
+#        id: create_release
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          draft: false
+#          prerelease: false
+#          release_name: ${{ steps.version.outputs.version }}
+#          tag_name: ${{ github.ref }}
+#          body: |
+#            Recaster release
+#            - tar, 7z archives
 
       - name: Upload tar artifact
         uses: actions/upload-release-asset@v1
@@ -197,15 +197,15 @@ jobs:
           asset_name: recaster-install-linux.tar.gz
           asset_content_type: application/gzip
 
-      - name: Upload zip artifact
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./recaster/recaster-install-win.7z
-          asset_name: recaster-install-win.7z
-          asset_content_type: application/x-7z-compressed
+#      - name: Upload zip artifact
+#        uses: actions/upload-release-asset@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          upload_url: ${{ steps.create_release.outputs.upload_url }}
+#          asset_path: ./recaster/recaster-install-win.7z
+#          asset_name: recaster-install-win.7z
+#          asset_content_type: application/x-7z-compressed
 
       - name: Upload README.md
         uses: actions/upload-release-asset@v1
