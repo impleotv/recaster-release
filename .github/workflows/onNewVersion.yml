@@ -185,7 +185,7 @@ jobs:
         run: |
           tree -L 3 ${{ github.workspace }}
 
-      - name: Create Windows release 
+      - name: Create release 
         uses: actions/create-release@v1
         id: create_release
         env:
