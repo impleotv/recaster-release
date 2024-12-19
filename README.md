@@ -20,7 +20,7 @@ OS: Linux, Windows
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
 | **Recaster for Windows (7z)** |  v2.9.1 | [recaster-install-win.7z](https://github.com/impleotv/recaster-release/releases/download/v2.9.1/recaster-install-win.7z)  | 
-| **Recaster for Linux (tar.gz)** |  v2.9.5 |
+| **Recaster for Linux (tar.gz)** |  v2.9.6 |
 
 
 
@@ -48,7 +48,7 @@ docker run -d \
     -v recasterdb:/recaster/db/ \
     -v recasterlic:/recaster/licenses/ \
     --network host \
-    impleo/recaster:2.9.5
+    impleo/recaster:2.9.6
 ```
 
 More info [here](https://impleotv.com/content/recaster/help/user-guide/running-docker.html)
