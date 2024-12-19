@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.9.6](https://github.com/impleotv/recaster/compare/v2.9.5...v2.9.6) (2024-12-19)
+
+### Bug Fixes
+
+- Update dependencies ([1be5de9](https://github.com/impleotv/recaster/commit/1be5de9b2bcbfae026eaa35fbee89a060857b49b))
+
+### [2.9.5](https://github.com/impleotv/recaster/compare/v2.9.4...v2.9.5) (2024-12-09)
+
+### Bug Fixes
+
+- Fix load platforms with channels ([6ecc591](https://github.com/impleotv/recaster/commit/6ecc5919b5e374a45249a6be35a982425a671bd3))
+
+### [2.9.4](https://github.com/impleotv/recaster/compare/v2.9.3...v2.9.4) (2024-12-09)
+
+### Bug Fixes
+
+- Fix bad platforms copy ([ca4b89d](https://github.com/impleotv/recaster/commit/ca4b89d7d17c3b019434d4f398f79408a1fab4cd))
+
+### [2.9.3](https://github.com/impleotv/recaster/compare/v2.9.2...v2.9.3) (2024-12-05)
+
+### Bug Fixes
+
+- Fix tcp target re-connect ([246c2d9](https://github.com/impleotv/recaster/commit/246c2d996cc49b04b851ed0c6b6dff71ec9dabdb))
+
+### [2.9.2](https://github.com/impleotv/recaster/compare/v2.9.1...v2.9.2) (2024-12-05)
+
+### Bug Fixes
+
+- Add ESMA logo ([b76a7e2](https://github.com/impleotv/recaster/commit/b76a7e26c1273b1b86df926a6a4535f098bfa0a4))
+- Disable SRT StreamId for server ([1216453](https://github.com/impleotv/recaster/commit/121645342acdfe75083107638e2676b983c80c3c))
+- Do not start platforms with wrong nic ([acc488f](https://github.com/impleotv/recaster/commit/acc488f4113c2ecae4e07be06f2207095389b390))
+- Update dependencies ([69e5ffa](https://github.com/impleotv/recaster/commit/69e5ffa695d8f96c8c4dcad8c197f9073e91a19f))
+- Update dependencies ([467d241](https://github.com/impleotv/recaster/commit/467d2410b65b499941b7d67c552c2d568d2fc9b5))
+- Update manual ([83bd18d](https://github.com/impleotv/recaster/commit/83bd18d5670371f9693278bb13288324d11ca183))
+
 ### [2.9.1](https://github.com/impleotv/recaster/compare/v2.9.0...v2.9.1) (2024-11-20)
 
 ### Bug Fixes
